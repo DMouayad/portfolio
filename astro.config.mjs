@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://localhost:4321',
+  site: 'https://DMouayad.github.io',
   integrations: [tailwind(), icon(), sitemap(), compress()],
   output: "static"
 });
