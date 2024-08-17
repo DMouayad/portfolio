@@ -1,0 +1,82 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+const { timeframe, title, description, org, tags,links,images, location } =
+  Astro.props;
+
+---
+
+<div class="card card-compact card-bordered border border-[oklch(var(--s))] w-full md:w-112 lg:w-128 hover:shadow-lg transition-all my-4">
+  <div class="card-body">
+    <div class="grid grid-cols-3 gap-y-1">
+      {title &&
+      <div class="col-span-2 md:col-end-3 self-start text-left">
+        <h1 class="uppercase card-title font-extrabold tracking-tighter  md:text-2xl">{title}</h1>  
+      </div>
+      }
+      {links &&
+        <div class="col-auto   justify-self-end">
+                  {links.map(link => (<a target="_blank" href={link.url}>
+                    <button  class="btn btn-outline ">
+                      {link.label}
+                      <Icon name="carbon:arrow-up-right" class="w-4 h-4 mr-1" />
+                    </button>
+                  </a>)
+                  )}
+        </div>
+}
+{timeframe && 
+        <div class="col-auto" class:list={links ? "justify-self-start": "justify-self-end"}>
+
+  <div class="badge w-max h-max text-center badge-outline inline-block align-middle shadow-md font-mono">
+    {timeframe}
+  </div>
+  </div>
+  }
+    {(location || org) &&
+    <div class="sm:col-span-2 col-span-3 sm:col-start-1 flex mt-4">
+      {location && (
+        <Icon name="carbon:location" class="w-4 h-4 mr-1" />
+        <span class="text-sm  font-light text-secondary">{location}</span>
+      )}
+    {org &&
+    <a href={org.url} target="_blank" class="link link-hover text-sm  text-right flex justify-center items-center">
+    {org.url !== "#" && <Icon name="carbon:building" class="w-4 h-4 ml-4 mr-1" />}
+    {org.name}
+    </a>
+    }
+    </div>
+    }
+  
+    </div>
+
+    <div class="grid grid-cols-3 gap-4 place-items-center">
+      <div class="self-start col-span-3 justify-self-start text-left">
+        <article class="prose text-secondary">
+          {description instanceof Object ?
+              <description.Content/>
+          :
+          <Fragment set:html={description}></Fragment>
+          }
+        </article>
+        {Array.isArray(tags) && (
+          <div class="flex flex-wrap content-around gap-2 my-4">
+            {tags.map(item => 
+              <span class="badge text-center inline-block align-middle w-max h-max text-sm  badge-outline shadow-md mb-1" :key={item}>{item}</span>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+   
+    {images &&
+    <div class="carousel carousel-center bg-neutral rounded-box max-w-[85vw] sm:max-w-[60vw] space-x-4 p-4">
+  {images.map(img => 
+    <div class="carousel-item w-[90%] md:w-6/12">
+      <Image class:list="w-full rounded-box grayscale-[100] hover:grayscale-0"  src={img} quality='100' alt=`"${title}" project preview` width="600" height="500">
+    </div>
+      )}
+    </div>
+     }
+  </div>
+</div>

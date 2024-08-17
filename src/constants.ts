@@ -1,0 +1,1 @@
+export const template_repo_link = "" as const;

@@ -1,0 +1,118 @@
+---
+import "@fontsource-variable/dm-sans";
+import Container from "../components/Container.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { Icon } from "astro-icon/components";
+
+const title = "Mouayad Alhamwi";
+---
+
+<html lang="en">
+  <head>
+    <script is:inline>
+      if (localStorage.getItem("theme") === null) {
+        document.documentElement.setAttribute("data-theme", "lofi");
+      } else
+        document.documentElement.setAttribute(
+          "data-theme",
+          localStorage.getItem("theme"),
+        );
+    </script>
+    <script>
+      import { themeChange } from "theme-change";
+      themeChange();
+    </script>
+    <meta charset="utf-8" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="flex flex-col min-h-screen w-screen overflow-x-hidden">
+    <Header />
+    <div
+      class="flex bg-dark items-center fixed top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8 xl:top-10 xl:right-10 z-10"
+    >
+      <Icon name="carbon:moon" class="w-6 h-6 md:w-4 md:h-4" />
+      <input
+        type="checkbox"
+        data-toggle-theme="lofi,black"
+        data-act-class="ACTIVECLASS"
+        class="toggle toggle-sm mx-2 bg-secondary"
+        checked
+      />
+      <Icon name="carbon:light" class="w-6 h-6 md:w-4 md:h-4" />
+    </div>
+
+    <div class="divider mx-auto h-fit max-w-4xl sm:w-[95vw] flex flex-nowrap">
+    </div>
+    <main class="mx-auto max-w-4xl py-3 sm:w-[95vw]">
+      <div class="container">
+        <Container />
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  body {
+    font-family: "DM Sans Variable", sans-serif;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    * {
+      font-size: 12px;
+    }
+  }
+
+  .overflow-y-scroll::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .overflow-y-scroll::-webkit-scrollbar-thumb {
+    background-color: oklch(var(--s));
+  }
+
+  .overflow-y-scroll {
+    scrollbar-width: thin;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+</style>
