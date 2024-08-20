@@ -6,6 +6,7 @@ import Header from "../components/Header.astro";
 import { Icon } from "astro-icon/components";
 
 const title = "Mouayad Alhamwi";
+const baseURL = "portfolio";
 ---
 
 <html lang="en">
@@ -27,21 +28,21 @@ const title = "Mouayad Alhamwi";
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/favicon/apple-touch-icon.png"
+      href=`${baseURL}/favicon/apple-touch-icon.png`
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/favicon/favicon-32x32.png"
+      href=`${baseURL}/favicon/favicon-32x32.png`
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/favicon/favicon-16x16.png"
+      href=`${baseURL}/favicon/favicon-16x16.png`
     />
-    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="manifest" href=`${baseURL}/favicon/site.webmanifest` />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -49,14 +50,14 @@ const title = "Mouayad Alhamwi";
   <body class="flex flex-col min-h-screen w-screen overflow-x-hidden">
     <Header />
     <div
-      class="flex bg-dark items-center fixed top-4 right-4 md:top-6 md:right-6 lg:top-8 lg:right-8 xl:top-10 xl:right-10 z-10"
+      class="flex bg-netural items-center fixed top-6 right-4 md:right-6 lg:top-8 lg:right-8 xl:top-10 xl:right-10 z-10"
     >
       <Icon name="carbon:moon" class="w-6 h-6 md:w-4 md:h-4" />
       <input
         type="checkbox"
         data-toggle-theme="lofi,black"
         data-act-class="ACTIVECLASS"
-        class="toggle toggle-sm mx-2 bg-secondary"
+        class="toggle toggle-md md:toggle-sm mx-2 bg-secondary"
         checked
       />
       <Icon name="carbon:light" class="w-6 h-6 md:w-4 md:h-4" />
@@ -64,7 +65,7 @@ const title = "Mouayad Alhamwi";
 
     <div class="divider mx-auto h-fit max-w-4xl sm:w-[95vw] flex flex-nowrap">
     </div>
-    <main class="mx-auto max-w-4xl py-3 sm:w-[95vw]">
+    <main class="mx-auto max-w-4xl py-3 w-[93vw] sm:w-[95vw]">
       <div class="container">
         <Container />
       </div>
@@ -87,7 +88,7 @@ const title = "Mouayad Alhamwi";
 
   @media only screen and (max-width: 480px) {
     * {
-      font-size: 12px;
+      font-size: 13px;
     }
   }
 
