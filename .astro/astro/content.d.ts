@@ -141,16 +141,23 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"projects": {
-"areena_saudi_german.md": {
-	id: "areena_saudi_german.md";
-  slug: "areena_saudi_german";
+"1-areena_saudi_german.md": {
+	id: "1-areena_saudi_german.md";
+  slug: "1-areena_saudi_german";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
-"taggy.md": {
-	id: "taggy.md";
-  slug: "taggy";
+"2-taggy.md": {
+	id: "2-taggy.md";
+  slug: "2-taggy";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"3-restful_api_with_laravel.md": {
+	id: "3-restful_api_with_laravel.md";
+  slug: "3-restful_api_with_laravel";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
