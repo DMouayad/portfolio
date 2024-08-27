@@ -11,7 +11,6 @@ images:
     - /src/images/taggy/cover.png
 ---
 
-- Integrated Rust with Dart to create a package that works across all platforms.
-- Utilized GitHub Actions for CI\CD.
-- Provided API documentation and usage examples for the package's users.
-- Created extensive test suites to ensure the reliability of the packages.
+- Packages to read, write and convert audio tags.
+- Automated deployment with Github Actions.
+- Cross platform & performant thanks to the Rust Flutter Bridge.

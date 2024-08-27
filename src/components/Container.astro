@@ -3,12 +3,10 @@ import { getCollection } from "astro:content";
 import AccordionLayout from "../layouts/AccordionLayout.astro";
 import * as about from "../pages/about/about.md";
 import Card from "./Card.astro";
-import ContactCard from "./ContactCard.astro";
 const works = await Astro.glob("../pages/works/*.md");
 
 const projects = await getCollection("projects");
 const studies = await Astro.glob("../pages/studies/*.md");
-const contact = await Astro.glob("../pages/contact/*.md");
 ---
 
 <div class="join join-vertical gap-1">
@@ -74,20 +72,5 @@ const contact = await Astro.glob("../pages/contact/*.md");
         );
       })
     }
-  </AccordionLayout>
-  <AccordionLayout title={"Contact"} icon={"carbon:location-person"}>
-    <div class="flex flex-wrap content-around gap-4 justify-center mb-4 mt-3">
-      {
-        contact.map((item) => {
-          return (
-            <ContactCard
-              url={item.frontmatter.url}
-              url_name={item.frontmatter.title}
-              icon={item.frontmatter.icon}
-            />
-          );
-        })
-      }
-    </div>
   </AccordionLayout>
 </div>

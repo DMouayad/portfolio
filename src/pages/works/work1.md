@@ -8,5 +8,5 @@ tags: ["Company Portfolio", "Website"]
 ---
 
 - Designed and implemented UI\UX for the company portfolio.
-- Applied best practices in web development to ensure the website is fast and SEO-friendly.
-- Developed a modular website which enabled an easy integration with the Storyblok CMS and leveraging its unique visual editing capabilities.
+- Optimized website performance by minimizing load times and improving site speed through following best practices in the dev process.
+- Leveraged Storyblok CMS and its unique visual editor to allow for interactive content management.
