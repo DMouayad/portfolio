@@ -19,6 +19,7 @@ const studies = await Astro.glob("../pages/studies/*.md");
             role="tab"
             class="tab"
             aria-label="About"
+            checked="checked"
         />
         <div role="tabpanel" class="tab-content">
             <Section
@@ -123,7 +124,6 @@ const studies = await Astro.glob("../pages/studies/*.md");
             role="tab"
             class="tab"
             aria-label="Projects"
-            checked="checked"
         />
         <div role="tabpanel" class="tab-content">
             <ProjectsSection />
