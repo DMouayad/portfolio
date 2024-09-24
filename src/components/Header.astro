@@ -5,14 +5,13 @@ import avatar from "/src/images/avatar.png";
 
 import * as about from "../pages/about/about.md";
 import ContactCard from "./ContactCard.astro";
+import MadeWithAstro from "../components/MadeWithAstro.astro";
 
 const contact = await Astro.glob("../pages/contact/*.md");
 ---
 
-<header class="mx-auto pt-6 pb-2 relative">
-  <article
-    class="flex flex-col md:flex-col items-center gap-4 w-full max-w-2xl"
-  >
+<div class="my-12 lg:my-36 relative lg:max-w-xs">
+  <article class="flex flex-col px-4 lg:px-0 lg:w-full lg:max-w-xs">
     <div
       class="flex-shrink-0 w-20 md:w-24 rounded-full shadow-sm overflow-hidden"
     >
@@ -26,25 +25,20 @@ const contact = await Astro.glob("../pages/contact/*.md");
       />
     </div>
 
-    <div class="text-center">
-      <div
-        class="flex justify-center md:justify-between items-center mb-2 relative"
-      >
-        <h1 class="text-3xl font-extrabold tracking-tight md:text-3xl relative">
-          {about.frontmatter.name}
-          <div class="absolute top-0 left-full ml-2 -mt-4"></div>
-        </h1>
-      </div>
-      <h2 class="text-lg mb-2 text-secondary">
-        {about.frontmatter.designation}
-      </h2>
-      <div class="flex items-center justify-center mt-1">
-        <Icon name="carbon:location" class="w-4 h-4 mr-1" />
-        <p class="text-sm text-secondary">{about.frontmatter.location}</p>
-      </div>
+    <div class="flex md:justify-between relative my-3">
+      <h1 class="text-4xl font-extrabold tracking-tight md:text-3xl relative">
+        {about.frontmatter.name}
+      </h1>
+    </div>
+    <h2 class="text-lg text-secondary mb-1">
+      {about.frontmatter.designation}
+    </h2>
+    <div class="flex">
+      <Icon name="carbon:location" class="w-4 h-4 mr-1" />
+      <p class="text-sm text-secondary">{about.frontmatter.location}</p>
     </div>
     <div
-      class="flex flex-wrap content-around gap-4 md:gap-10 justify-center mb-4 mt-5"
+      class="flex flex-wrap content-between gap-y-6 md:gap-x-3 my-5 mt-8 items-center justify-between lg:justify-start"
     >
       {
         contact.map((item) => {
@@ -58,16 +52,8 @@ const contact = await Astro.glob("../pages/contact/*.md");
         })
       }
     </div>
+    <div class="invisible lg:visible lg:mt-12">
+      <MadeWithAstro />
+    </div>
   </article>
-</header>
-
-<style>
-  @media (max-width: 768px) {
-    .flex-col.justify-end {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-</style>
+</div>

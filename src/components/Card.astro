@@ -5,12 +5,12 @@ const {classList, timeframe, title, description, org, tags,links,images, locatio
   Astro.props;
 ---
 
-<div class:list={classList} class="card card-compact card-bordered border border-[oklch(var(--s))] w-full md:w-112 lg:w-128 hover:shadow-lg transition-all my-4">
-  <div class="card-body">
-    <div class="grid grid-cols-3 gap-y-1">
+<div class:list={classList} class="card card-compact card-bordered  p-8 border border-[oklch(var(--s))] w-full md:w-112 lg:w-128 hover:shadow-lg transition-all my-0">
+  <div class="card-body gap-4" style="padding: 0;">
+    <div class="grid grid-cols-3 gap-y-2">
       {title &&
       <div class="col-span-2 md:col-end-3 self-center text-left">
-        <h1 class="uppercase card-title font-extrabold tracking-tighter  md:text-2xl">{title}</h1>  
+        <h1 class="capitalize card-title font-extrabold tracking-tighter  md:text-2xl">{title}</h1>  
       </div>
       }
      
@@ -51,13 +51,13 @@ const {classList, timeframe, title, description, org, tags,links,images, locatio
     </div>
     {images &&
       <div class="carousel carousel-center rounded-box max-w-[85vw] sm:max-w-[60vw] space-x-4 px-1 py-4">
-         {images.map(img => 
+        {images.map(img => 
       <div class="carousel-item w-[90%] md:w-6/12">
-        <Image class:list="w-full rounded-box grayscale-[100] hover:grayscale-0"  src={img} quality='100' alt=`"${title}" project preview` width="600" height="500">
+        <Image class:list="w-full rounded-box grayscale-[100] hover:grayscale-0" src={img} quality='100' alt=`"${title}" project preview` width="600" height="500">
       </div>
         )}
       </div>
-       }
+    }
     <div class="grid grid-cols-3 gap-4 place-items-center">
       <div class="self-start col-span-3 justify-self-start text-left">
         <article class="prose text-secondary">

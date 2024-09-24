@@ -1,0 +1,151 @@
+---
+import Section from "./Section.astro";
+import ThemeModeSwitch from "./ThemeModeSwitch.astro";
+import * as about from "../pages/about/about.md";
+
+import Card from "./Card.astro";
+import { Icon } from "astro-icon/components";
+import ProjectsSection from "./ProjectsSection.astro";
+
+const works = await Astro.glob("../pages/works/*.md");
+const studies = await Astro.glob("../pages/studies/*.md");
+---
+
+<div class="lg:mt-8 px-0">
+    <div role="tablist" class="tabs">
+        <input
+            type="radio"
+            name="nav-tabs"
+            role="tab"
+            class="tab"
+            aria-label="About"
+        />
+        <div role="tabpanel" class="tab-content">
+            <Section
+                id="about"
+                title={"Who Am I & What I Do"}
+                icon={"carbon:identification"}
+            >
+                <article class="prose leading-8 lg:leading-9 text-secondary">
+                    <Fragment
+                        class:list=" md:text-justify"
+                        set:html={about.compiledContent()}
+                    />
+                </article>
+                <div class="flex font-extrabold md:text-xl my-8">
+                    <Icon name="carbon:tools" class="w-7 h-7 mr-4" />
+                    Currently Using
+                </div>
+                <div class="flex flex-wrap justify-around">
+                    <div class="basis-2/5">
+                        <div class="h6 mb-6 font-semibold">Front-End</div>
+                        <img
+                            class="hover:grayscale"
+                            alt="Front-End tech-stack"
+                            src="https://skillicons.dev/icons?i=astro,css,html,js,tailwind"
+                        />
+                    </div>
+                    <div class="basis-1/4">
+                        <div class="h6 mb-6 font-semibold">Back-End</div>
+                        <img
+                            class="hover:grayscale"
+                            alt="Back-End tech-stack"
+                            src="https://skillicons.dev/icons?i=express,nodejs,ts"
+                        />
+                    </div>
+                    <div class="basis-1/4">
+                        <div class="h6 mb-6 font-semibold">Tools</div>
+                        <img
+                            alt="Tools I use"
+                            class="hover:grayscale"
+                            src="https://skillicons.dev/icons?i=git,github,vscode,pnpm&theme=dark"
+                        />
+                    </div>
+                </div>
+            </Section>
+        </div>
+
+        <input
+            type="radio"
+            name="nav-tabs"
+            role="tab"
+            class="tab"
+            aria-label="Work"
+        />
+        <div role="tabpanel" class="tab-content">
+            {
+                works.map((item) => {
+                    return (
+                        <Card
+                            title={item.frontmatter.title}
+                            timeframe={item.frontmatter.date}
+                            description={item.compiledContent()}
+                            tags={item.frontmatter.tags}
+                            org={{
+                                url: item.frontmatter.org_url,
+                                name: item.frontmatter.org_name,
+                            }}
+                            location={item.frontmatter.location}
+                        />
+                    );
+                })
+            }
+        </div>
+
+        <input
+            type="radio"
+            name="nav-tabs"
+            role="tab"
+            class="tab"
+            aria-label="Education"
+        />
+        <div role="tabpanel" class="tab-content">
+            {
+                studies.map((item) => {
+                    return (
+                        <Card
+                            title={item.frontmatter.title}
+                            timeframe={item.frontmatter.date}
+                            location={item.frontmatter.location}
+                            tags={item.frontmatter.tags}
+                            org={{
+                                url: item.frontmatter.org_url,
+                                name: item.frontmatter.org_name,
+                            }}
+                        />
+                    );
+                })
+            }
+        </div>
+        <input
+            type="radio"
+            name="nav-tabs"
+            role="tab"
+            class="tab"
+            aria-label="Projects"
+            checked="checked"
+        />
+        <div role="tabpanel" class="tab-content">
+            <ProjectsSection />
+        </div>
+    </div>
+
+    <ThemeModeSwitch />
+</div>
+<style>
+    .tab-content {
+        @apply my-5;
+        @apply lg:mt-14;
+        @apply lg:h-[520px];
+    }
+    .tab {
+        @apply btn btn-ghost;
+        @apply lg:px-10;
+        @apply px-6;
+        @apply me-1;
+        @apply rounded-md !important;
+    }
+    ::after.tab {
+        @apply text-base;
+    }
+</style>

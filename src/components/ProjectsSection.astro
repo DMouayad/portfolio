@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+import type { CollectionEntry } from "astro:content";
+
+const projects: CollectionEntry<"projects">[] = await getCollection("projects");
+---
+
+<div class="projects-list">
+    {
+        projects.map(async (item) => {
+            return (
+                <ProjectCard
+                    classList=" lg:max-h-[540px]"
+                    projectEntry={item}
+                />
+            );
+        })
+    }
+</div>
+
+<style>
+    ::-webkit-scrollbar {
+        color: white;
+    }
+    .projects-list {
+        @apply lg:max-h-[80vh];
+        @apply lg:mb-8;
+        height: fit-content;
+        scrollbar-width: thin;
+        overflow-x: hidden;
+        @apply lg:overflow-y-scroll;
+        ::-webkit-scrollbar-button {
+            display: none;
+        }
+    }
+</style>

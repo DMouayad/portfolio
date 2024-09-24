@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div
+    class="flex fixed items-center justify-end top-6 right-4 md:right-6 lg:top-8 lg:right-8 xl:top-10 xl:right-10 z-10"
+>
+    <Icon name="carbon:moon" class="w-5 h-5 md:w-4 md:h-4" />
+    <input
+        aria-label="Theme Mode Switch"
+        type="checkbox"
+        data-toggle-theme="lofi,black"
+        data-act-class="ACTIVECLASS"
+        class="toggle toggle-sm mx-2 bg-secondary"
+        checked
+    />
+    <Icon name="carbon:light" class="w-5 h-5 md:w-4 md:h-4" />
+</div>

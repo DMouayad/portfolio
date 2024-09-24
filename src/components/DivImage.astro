@@ -1,0 +1,30 @@
+---
+import type { GetImageResult, UnresolvedImageTransform } from "astro";
+import { getImage } from "astro:assets";
+
+interface Props {
+    options: UnresolvedImageTransform;
+    classList?: string[] | string;
+    rest?: [];
+}
+const { options, classList = "", ...rest } = Astro.props;
+var optimizedImage: GetImageResult | undefined;
+try {
+    optimizedImage = await getImage({
+        ...options,
+        formate: "webp",
+    });
+} catch (error) {}
+---
+
+{
+    optimizedImage && (
+        <div
+            class:list={classList}
+            data-background-image={optimizedImage.src}
+            {...rest}
+        >
+            <slot />
+        </div>
+    )
+}

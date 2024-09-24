@@ -1,6 +1,6 @@
 ---
 title: Restful API with Laravel
-tags: [ "Laravel", "MySQL", "Restful API", "API Testing"]
+tags: [ "Laravel", "MySQL", "Restful API Design", "Unit-Testing"]
 date: 2022-2023
 links:
   - label: Gitlab

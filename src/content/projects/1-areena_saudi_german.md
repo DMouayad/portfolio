@@ -1,6 +1,6 @@
 ---
 title: Company website
-tags: ["Astro", "Hugo", "UI/UX", "Storyblok", "TinaCMS", "Cloudflare Pages"]
+tags: ["Astro", "UI/UX", "JamStack", "Storyblok", "Cloudflare Pages"]
 date: 2024
 links:
   - label: live website

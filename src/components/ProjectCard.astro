@@ -1,0 +1,68 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+import DivImage from "./DivImage.astro";
+
+interface Props {
+    projectEntry: CollectionEntry<"projects">;
+    classList?: string;
+    rest?: any;
+}
+const { projectEntry, classList, ...rest } = Astro.props;
+const project = projectEntry.data;
+---
+
+<div class:list={classList} class="card card-compact card-bordered" {...rest}>
+    <div class="card-body gap-2" style="padding: 0;">
+        <div class="flex justify-between">
+            <div class="text-left">
+                <h1
+                    class="capitalize card-title font-extrabold tracking-tighter md:text-2xl"
+                >
+                    {project.title}
+                </h1>
+            </div>
+            <div class="flex">
+                {
+                    project.links.map((link) => (
+                        <a
+                            class="btn text-secondary btn-link hover:btn-outline"
+                            target="_blank"
+                            href={link.url}
+                        >
+                            {link.label}
+                            <Icon name="carbon:arrow-up-right" class=" mr-1" />
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+        {
+            (
+                <DivImage
+                    classList=" rounded bg-clip-border bg-no-repeat bg-contain bg-center w-full h-[200px] lg:h-[310px] hover:grayscale duration-700"
+                    options={{
+                        src: project.images.at(0),
+                        width: 1200,
+                        inferSize: true,
+                    }}
+                />
+            )
+        }
+        <div class="flex gap-2 my-4 flex-wrap content-around">
+            {
+                project.tags.map((tag) => (
+                    <div class="badge text-center py-3 align-middle shadow-sm badge-outline">
+                        {tag}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        @apply p-8 border border-[oklch(var(--s))] w-full hover:shadow-lg transition-all my-0 mb-5;
+    }
+</style>

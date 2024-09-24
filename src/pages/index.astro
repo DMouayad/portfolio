@@ -1,11 +1,10 @@
 ---
 import "@fontsource-variable/dm-sans";
-import Container from "../components/Container.astro";
-import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { Icon } from "astro-icon/components";
+import MainTabs from "../components/MainTabs.astro";
+import MadeWithAstro from "../components/MadeWithAstro.astro";
 
-const title = "Mouayad Alhamwi";
+const title = "Mouayad Alhamwi | Website";
 const baseURL = "portfolio";
 ---
 
@@ -24,7 +23,6 @@ const baseURL = "portfolio";
       import { themeChange } from "theme-change";
       themeChange();
     </script>
-    <meta charset="utf-8" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -43,38 +41,37 @@ const baseURL = "portfolio";
       href=`${baseURL}/favicon/favicon-16x16.png`
     />
     <link rel="manifest" href=`${baseURL}/favicon/site.webmanifest` />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="This is the offical website for Mouayad Alhamwi"
+    />
     <title>{title}</title>
   </head>
-  <body class="flex flex-col min-h-screen w-screen overflow-x-hidden">
-    <Header />
-    <div
-      class="flex bg-netural items-center fixed top-6 right-4 md:right-6 lg:top-8 lg:right-8 xl:top-10 xl:right-10 z-10"
-    >
-      <Icon name="carbon:moon" class="w-6 h-6 md:w-4 md:h-4" />
-      <input
-        type="checkbox"
-        data-toggle-theme="lofi,black"
-        data-act-class="ACTIVECLASS"
-        class="toggle toggle-md md:toggle-sm mx-2 bg-secondary"
-        checked
-      />
-      <Icon name="carbon:light" class="w-6 h-6 md:w-4 md:h-4" />
-    </div>
-
-    <div
-      class="divider mx-auto h-fit bg-zinc-100 max-w-4xl sm:w-[95vw] flex flex-nowrap"
-    >
-    </div>
-    <main class="mx-auto max-w-4xl py-3 w-[93vw] sm:w-[95vw]">
-      <div class="container">
-        <Container />
+  <body
+    class="flex flex-col items-center w-screen overflow-x-hidden lg:overflow-hidden"
+  >
+    <main class="">
+      <div class="w-[92vw] mx-auto md:max-w-7xl md:w-[98vw] sm:w-[95vw]">
+        <div class="flex flex-col lg:flex-row">
+          <div class="lg:fixed">
+            <Header />
+          </div>
+          <div class="invisible lg:visible lg:basis-2/6"></div>
+          <div class="lg:basis-5/6 px-4 lg:px-0">
+            <MainTabs />
+          </div>
+        </div>
       </div>
     </main>
-    <Footer />
+    <footer class="lg:invisible pt-2 pb-6">
+      <MadeWithAstro />
+    </footer>
   </body>
 </html>
+<script src="/src/assets/main.js"></script>
 
 <style is:global>
   body {
@@ -93,29 +90,7 @@ const baseURL = "portfolio";
       font-size: 13px;
     }
   }
-
-  .overflow-y-scroll::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  .overflow-y-scroll::-webkit-scrollbar-thumb {
-    background-color: oklch(var(--s));
-  }
-
-  .overflow-y-scroll {
-    scrollbar-width: thin;
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-    }
+  * {
+    scrollbar-color: oklch(var(--bc)) oklch(var(--b1)) !important;
   }
 </style>
