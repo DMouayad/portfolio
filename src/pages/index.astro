@@ -5,7 +5,7 @@ import MainTabs from "../components/MainTabs.astro";
 import MadeWithAstro from "../components/MadeWithAstro.astro";
 
 const title = "Mouayad Alhamwi | Website";
-const baseURL = "portfolio";
+const baseURL = Astro.url.href;
 ---
 
 <html lang="en">
@@ -26,21 +26,21 @@ const baseURL = "portfolio";
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href=`${baseURL}/favicon/apple-touch-icon.png`
+      href=`${baseURL}favicon/apple-touch-icon.png`
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href=`${baseURL}/favicon/favicon-32x32.png`
+      href=`${baseURL}favicon/favicon-32x32.png`
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href=`${baseURL}/favicon/favicon-16x16.png`
+      href=`${baseURL}favicon/favicon-16x16.png`
     />
-    <link rel="manifest" href=`${baseURL}/favicon/site.webmanifest` />
+    <link rel="manifest" href=`${baseURL}favicon/site.webmanifest` />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
