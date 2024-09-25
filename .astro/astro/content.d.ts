@@ -148,16 +148,23 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
-"2-taggy.md": {
-	id: "2-taggy.md";
-  slug: "2-taggy";
+"2-healing-guide.md": {
+	id: "2-healing-guide.md";
+  slug: "2-healing-guide";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
-"3-restful_api_with_laravel.md": {
-	id: "3-restful_api_with_laravel.md";
-  slug: "3-restful_api_with_laravel";
+"3-taggy.md": {
+	id: "3-taggy.md";
+  slug: "3-taggy";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"4-restful_api_with_laravel.md": {
+	id: "4-restful_api_with_laravel.md";
+  slug: "4-restful_api_with_laravel";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
