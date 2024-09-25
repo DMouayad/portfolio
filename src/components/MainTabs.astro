@@ -37,28 +37,31 @@ const studies = await Astro.glob("../pages/studies/*.md");
                     <Icon name="carbon:tools" class="w-7 h-7 mr-4" />
                     Currently Using
                 </div>
-                <div class="flex flex-wrap justify-around">
-                    <div class="basis-2/5">
+                <div class="flex flex-wrap gap-y-5 lg:justify-around">
+                    <div class="lg:basis-2/5">
                         <div class="h6 mb-6 font-semibold">Front-End</div>
                         <img
                             class="hover:grayscale"
                             alt="Front-End tech-stack"
+                            height="48px"
                             src="https://skillicons.dev/icons?i=astro,css,html,js,tailwind"
                         />
                     </div>
-                    <div class="basis-1/4">
+                    <div class="lg:basis-1/4">
                         <div class="h6 mb-6 font-semibold">Back-End</div>
                         <img
                             class="hover:grayscale"
                             alt="Back-End tech-stack"
+                            height="48px"
                             src="https://skillicons.dev/icons?i=express,nodejs,ts"
                         />
                     </div>
-                    <div class="basis-1/4">
+                    <div class="lg:basis-1/4">
                         <div class="h6 mb-6 font-semibold">Tools</div>
                         <img
                             alt="Tools I use"
                             class="hover:grayscale"
+                            height="48px"
                             src="https://skillicons.dev/icons?i=git,github,vscode,pnpm&theme=dark"
                         />
                     </div>
