@@ -11,5 +11,5 @@ images:
     - /src/images/my_clinic_api/banner.png
 ---
 
-- A Restful API made with Laravel following DDD(Domain Models, DTOs).
-- Authentication and Authorization using JWT for Access and Refresh tokens.
+- Made with Laravel following API design best practices: Domain Models, DTOs, Actions, Unit and Feature tests.
+- Role Based Auth with JWT for access and refresh tokens.

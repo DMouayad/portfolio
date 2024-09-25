@@ -12,4 +12,4 @@ images:
 
 - A fast and SEO-friendly static website using Astro.
 - Contact form with <a target="_blank" href="https://www.cloudflare.com/products/turnstile/">Cloudflare Turnstile</a> and <a target="_blank" href="https://resend.com/home">Resend</a>
-- <a target="_blank" href="https://storyblok.com">StoryBlok</a> CMS.
+- <a target="_blank" href="https://storyblok.com">StoryBlok</a> as a CMS with visual editing.

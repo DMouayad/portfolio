@@ -1,6 +1,6 @@
 ---
 title: Dart & Flutter Packages
-tags: ["Dart", "Flutter", "CI/CD"]
+tags: ["Dart", "Flutter", "CI/CD", "Rust"]
 date: 2023
 links:
   - label: Github
