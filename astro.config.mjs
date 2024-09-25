@@ -5,8 +5,7 @@ import icon from "astro-icon";
 import robotsConfig from './robots-txt.config';
 import robotsTxt from "astro-robots-txt"
 import sitemap from "@astrojs/sitemap";
-export const BASE_PATH = "portfolio";
-
+import { BASE_PATH } from './src/constants';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://DMouayad.github.io',
