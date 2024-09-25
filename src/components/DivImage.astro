@@ -6,8 +6,16 @@ interface Props {
     options: UnresolvedImageTransform;
     classList?: string[] | string;
     rest?: [];
+    useOptimizedImgHeight?: boolean;
+    useOptimizedImgwidth?: boolean;
 }
-const { options, classList = "", ...rest } = Astro.props;
+const {
+    options,
+    classList = "",
+    useOptimizedImgHeight = false,
+    useOptimizedImgwidth = false,
+    ...rest
+} = Astro.props;
 var optimizedImage: GetImageResult | undefined;
 try {
     optimizedImage = await getImage({
@@ -20,7 +28,15 @@ try {
 {
     optimizedImage && (
         <div
-            class:list={classList}
+            class:list={
+                classList +
+                (useOptimizedImgwidth
+                    ? ` w-[${optimizedImage.attributes.width}px] `
+                    : "") +
+                (useOptimizedImgHeight
+                    ? ` h-[${optimizedImage.attributes.height}px] `
+                    : "")
+            }
             data-background-image={optimizedImage.src}
             {...rest}
         >
