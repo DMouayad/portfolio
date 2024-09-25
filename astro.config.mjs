@@ -5,11 +5,12 @@ import icon from "astro-icon";
 import robotsConfig from './robots-txt.config';
 import robotsTxt from "astro-robots-txt"
 import sitemap from "@astrojs/sitemap";
+export const BASE_PATH = "portfolio";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://DMouayad.github.io',
-  base: 'portfolio',
+  base: BASE_PATH,
   integrations: [tailwind(), icon(), sitemap(), robotsTxt(robotsConfig), compress()],
   output: "static"
 });

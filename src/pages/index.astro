@@ -3,9 +3,14 @@ import "@fontsource-variable/dm-sans";
 import Header from "../components/Header.astro";
 import MainTabs from "../components/MainTabs.astro";
 import MadeWithAstro from "../components/MadeWithAstro.astro";
+import { BASE_PATH } from "astro.config.mjs";
 
 const title = "Mouayad Alhamwi | Website";
-const baseURL = Astro.url.href;
+
+function getPublicAssetUrl(assetPath: string): string {
+  const url = new URL(BASE_PATH + assetPath, Astro.url.origin);
+  return url.toString();
+}
 ---
 
 <html lang="en">
@@ -26,22 +31,25 @@ const baseURL = Astro.url.href;
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href=`${baseURL}favicon/apple-touch-icon.png`
+      href={getPublicAssetUrl("/favicon/apple-touch-icon.png")}
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href=`${baseURL}favicon/favicon-32x32.png`
+      href={getPublicAssetUrl("/favicon/favicon-32x32.png")}
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href=`${baseURL}favicon/favicon-16x16.png`
+      href={getPublicAssetUrl("/favicon/favicon-16x16.png")}
     />
-    <link rel="manifest" href=`${baseURL}favicon/site.webmanifest` />
-    <meta charset="UTF-8" />
+    <link
+      rel="manifest"
+      href={getPublicAssetUrl("/favicon/site.webmanifest")}
+    />
+    <meta charset="UTF')}8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta
