@@ -9,5 +9,4 @@ images:
     - /src/images/hguide/healing-guide-web.png
 ---
 
-- A static website made with Astro
-- Available in Arabic and English
+A static website made with Astro, Available in Arabic and English.

@@ -11,5 +11,5 @@ images:
     - /src/images/my_clinic_api/banner.png
 ---
 
-- Made with Laravel following API design best practices: Domain Models, DTOs, Actions, Unit and Feature tests.
-- Role Based Auth with JWT for access and refresh tokens.
+Developed using Laravel following API design best practices: Domain Models, DTOs, Actions, Unit and Feature tests.
+Role Based Auth with access and refresh tokens.
