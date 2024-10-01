@@ -15,6 +15,8 @@ function getPublicAssetUrl(assetPath: string): string {
 
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script is:inline>
       if (localStorage.getItem("theme") === null) {
         document.documentElement.setAttribute("data-theme", "lofi");
@@ -49,8 +51,6 @@ function getPublicAssetUrl(assetPath: string): string {
       rel="manifest"
       href={getPublicAssetUrl("/favicon/site.webmanifest")}
     />
-    <meta charset="UTF')}8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
@@ -60,14 +60,13 @@ function getPublicAssetUrl(assetPath: string): string {
   </head>
   <body class="h-dvh w-full overflow-x-hidden lg:overflow-hidden">
     <main
-      class="min-h-screen lg:min-h-auto max-h-max w-[92vw] mx-auto md:max-w-7xl md:w-[98vw] sm:w-[95vw]"
+      class="min-h-screen lg:min-h-auto max-h-max w-[92vw] max-w-7xl mx-auto sm:w-[95vw]"
     >
       <div class="flex flex-col lg:flex-row">
-        <div class="lg:fixed">
+        <div class="lg:basis-1/6 lg:mr-12">
           <Header />
         </div>
-        <div class="invisible lg:visible lg:basis-2/6"></div>
-        <div class="lg:basis-5/6 px-4 lg:px-0">
+        <div class="lg:basis-5/6 px-2 lg:px-0">
           <MainTabs />
         </div>
       </div>

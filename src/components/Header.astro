@@ -9,13 +9,9 @@ import ContactCard from "./ContactCard.astro";
 const contact = await Astro.glob("../pages/contact/*.md");
 ---
 
-<div class="">
-  <article
-    class="lg:h-screen mx-auto max-w-md py-9 justify-center flex flex-col px-4 lg:px-0 lg:w-full lg:max-w-xs"
-  >
-    <div
-      class="flex-shrink-0 w-20 md:w-24 rounded-full shadow-sm overflow-hidden"
-    >
+<div class="py-8 flex flex-col items-start px-6 lg:px-0">
+  <div class="flex flex-col justify-start gap-3 lg:max-w-xs">
+    <div class="flex-shrink-0 size-20 rounded-full shadow-sm overflow-hidden">
       <Image
         format="webp"
         decoding="async"
@@ -26,30 +22,31 @@ const contact = await Astro.glob("../pages/contact/*.md");
       />
     </div>
 
-    <div class="flex md:justify-between relative my-5">
-      <h1 class="text-4xl font-extrabold tracking-tight md:text-3xl relative">
-        {about.frontmatter.name}
-      </h1>
-    </div>
-    <h2 class="font-semibold text-lg text-secondary mb-2">
-      {about.frontmatter.designation}
-    </h2>
-    <div class="flex text-sm text-secondary">
-      <Icon color="currentColor" name="carbon:location" class="w-4 h-4 mr-1" />
-      <p>{about.frontmatter.location}</p>
-    </div>
-    <div class="flex mt-8 content-between items-center justify-between">
-      {
-        contact.map((item) => {
-          return (
-            <ContactCard
-              url={item.frontmatter.url}
-              url_name={item.frontmatter.title}
-              icon={item.frontmatter.icon}
-            />
-          );
-        })
-      }
-    </div>
-  </article>
+    <h1 class="text-3xl font-extrabold tracking-tight md:text-[26px] relative">
+      {about.frontmatter.name}
+    </h1>
+  </div>
+  <h2 class="font-semibold text-lg text-secondary">
+    {about.frontmatter.designation}
+  </h2>
+
+  <div class="flex text-sm text-secondary my-5">
+    <Icon color="currentColor" name="carbon:location" class="w-4 h-4 mr-1" />
+    <p>{about.frontmatter.location}</p>
+  </div>
+  <div
+    class="flex lg:flex-wrap gap-1 content-between items-center justify-between"
+  >
+    {
+      contact.map((item) => {
+        return (
+          <ContactCard
+            url={item.frontmatter.url}
+            url_name={item.frontmatter.title}
+            icon={item.frontmatter.icon}
+          />
+        );
+      })
+    }
+  </div>
 </div>

@@ -9,7 +9,7 @@ const works = await Astro.glob("../pages/works/*.md");
 const studies = await Astro.glob("../pages/studies/*.md");
 ---
 
-<div role="tablist" class="tabs lg:h-dvh">
+<div role="tablist" class="tabs max-w-[930px] lg:h-dvh">
     <input
         type="radio"
         name="nav-tabs"
@@ -94,7 +94,7 @@ const studies = await Astro.glob("../pages/studies/*.md");
     }
     .tab {
         @apply btn btn-ghost;
-        @apply px-6 lg:px-10;
+        @apply px-5 lg:px-10;
         @apply me-1 tracking-wide;
         @apply rounded-sm outline-none border-x-0 border-t-0;
         @apply text-base-content !important;

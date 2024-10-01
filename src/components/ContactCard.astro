@@ -5,7 +5,9 @@ import { Icon } from "astro-icon/components";
 
 <a target="_blank" href={url}>
   <button
-    class="btn lg:btn-ghost mr-1 hover:bg-primary hover:text-primary-content duration-700"
-    ><Icon name={icon} class="w-5 h-5" /></button
+    class="btn btn-netural lg:btn-ghost lg:btn-wide justify-center h-20 lg:h-auto lg:justify-start items-center duration-500"
   >
+    <Icon name={icon} class="w-6 h-6" />
+    <div class="">{url_name}</div>
+  </button>
 </a>
