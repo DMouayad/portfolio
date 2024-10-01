@@ -13,7 +13,11 @@ const project = projectEntry.data;
 const mainImage = project.images.at(0);
 ---
 
-<div class:list={classList} class="card card-compact card-bordered" {...rest}>
+<div
+    class:list={classList}
+    class="card card-compact card-bordered my-0 mb-5"
+    {...rest}
+>
     {
         mainImage && (
             <DivImage
@@ -67,9 +71,3 @@ const mainImage = project.images.at(0);
         </div>
     </div>
 </div>
-
-<style>
-    .card {
-        @apply p-6 px-8 border border-[oklch(var(--s))] w-full md:hover:shadow-lg transition-all my-0 mb-5;
-    }
-</style>
