@@ -1,6 +1,6 @@
 ---
 import "@fontsource-variable/dm-sans";
-import Header from "../components/Header.astro";
+import Sidebar from "../components/Sidebar.astro";
 import MainTabs from "../components/MainTabs.astro";
 import MadeWithAstro from "../components/MadeWithAstro.astro";
 import { BASE_PATH } from "@/constants";
@@ -63,8 +63,8 @@ function getPublicAssetUrl(assetPath: string): string {
       class="min-h-screen lg:min-h-auto max-h-max w-[92vw] max-w-7xl mx-auto sm:w-[95vw]"
     >
       <div class="flex flex-col lg:flex-row">
-        <div class="lg:basis-1/6 lg:mr-12">
-          <Header />
+        <div class="lg:basis-1/6 lg:mr-8">
+          <Sidebar />
         </div>
         <div class="lg:basis-5/6 px-2 lg:px-0">
           <MainTabs />

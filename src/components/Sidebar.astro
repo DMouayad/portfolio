@@ -9,8 +9,8 @@ import ContactCard from "./ContactCard.astro";
 const contact = await Astro.glob("../pages/contact/*.md");
 ---
 
-<div class="py-8 flex flex-col items-start px-6 lg:px-0">
-  <div class="flex flex-col justify-start gap-3 lg:max-w-xs">
+<div class="h-[600px] flex flex-col justify-center items-start px-6 lg:px-0">
+  <div class="flex flex-col lg:items-center lg:max-w-xs">
     <div class="flex-shrink-0 size-20 rounded-full shadow-sm overflow-hidden">
       <Image
         format="webp"
@@ -22,21 +22,24 @@ const contact = await Astro.glob("../pages/contact/*.md");
       />
     </div>
 
-    <h1 class="text-3xl font-extrabold tracking-tight md:text-[26px] relative">
+    <h1
+      class="mt-3 text-3xl font-extrabold tracking-tight md:text-[26px] relative"
+    >
       {about.frontmatter.name}
     </h1>
   </div>
-  <h2 class="font-semibold text-lg text-secondary">
+  <h2 class="font-semibold text-lg mt-3 text-secondary">
     {about.frontmatter.designation}
   </h2>
 
-  <div class="flex text-sm text-secondary my-5">
-    <Icon color="currentColor" name="carbon:location" class="w-4 h-4 mr-1" />
+  <div class="flex text-sm mt-1 mb-4">
+    <Icon name="carbon:location" class="text-secondary w-4 h-4 mr-1" />
     <p>{about.frontmatter.location}</p>
   </div>
-  <div
-    class="flex lg:flex-wrap gap-1 content-between items-center justify-between"
-  >
+  <article class="prose leading-7 my-9 lg:mt-5">
+    <Fragment class:list=" text-justify" set:html={about.compiledContent()} />
+  </article>
+  <div class="flex items-center justify-around lg:justify-between w-full">
     {
       contact.map((item) => {
         return (
@@ -49,4 +52,11 @@ const contact = await Astro.glob("../pages/contact/*.md");
       })
     }
   </div>
+
+  <!-- <img
+    class="self-end grayscale hover:grayscale-0"
+    alt="Back-End tech-stack"
+    height="104px"
+    src="https://skillicons.dev/icons?i=astro,express,nodejs,tailwind,git,github,vscode,pnpm"
+  /> -->
 </div>
