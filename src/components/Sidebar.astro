@@ -9,7 +9,9 @@ import ContactCard from "./ContactCard.astro";
 const contact = await Astro.glob("../pages/contact/*.md");
 ---
 
-<div class="h-[600px] flex flex-col justify-center items-start px-6 lg:px-0">
+<div
+  class="h-[400px] lg:h-[90%] flex flex-col justify-center items-start px-6 lg:px-0"
+>
   <div class="flex flex-col lg:items-center lg:max-w-xs">
     <div class="flex-shrink-0 size-20 rounded-full shadow-sm overflow-hidden">
       <Image
