@@ -14,7 +14,7 @@ export default {
 					"--outline": "--secondary"
 				},
 				black: {
-					...require("daisyui/src/theming/themes")['business'],
+					...require("daisyui/src/theming/themes")['forest'],
 					"--rounded-box": "1rem",
 					"--rounded-btn": "0.5rem",
 					"--rounded-badge": "1.9rem",
