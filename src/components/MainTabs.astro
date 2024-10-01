@@ -3,7 +3,6 @@ import ThemeModeSwitch from "./ThemeModeSwitch.astro";
 
 import Card from "./Card.astro";
 import ProjectsSection from "./ProjectsSection.astro";
-import AboutCard from "./AboutCard.astro";
 
 const works = await Astro.glob("../pages/works/*.md");
 const studies = await Astro.glob("../pages/studies/*.md");
@@ -15,19 +14,8 @@ const studies = await Astro.glob("../pages/studies/*.md");
         name="nav-tabs"
         role="tab"
         class="tab"
-        aria-label="About"
-        checked="checked"
-    />
-    <div role="tabpanel" class="tab-content">
-        <AboutCard id="about" />
-    </div>
-
-    <input
-        type="radio"
-        name="nav-tabs"
-        role="tab"
-        class="tab"
         aria-label="Work"
+        checked
     />
     <div role="tabpanel" class="tab-content">
         {
@@ -90,7 +78,7 @@ const studies = await Astro.glob("../pages/studies/*.md");
 <style>
     .tab-content {
         @apply my-5;
-        @apply lg:h-[570px];
+        @apply lg:h-[580px];
     }
     .tab {
         @apply btn btn-ghost;
