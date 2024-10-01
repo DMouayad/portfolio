@@ -94,10 +94,14 @@ const studies = await Astro.glob("../pages/studies/*.md");
     }
     .tab {
         @apply btn btn-ghost;
-        @apply lg:px-10;
-        @apply px-6;
-        @apply me-1;
-        @apply rounded-md !important;
+        @apply px-6 lg:px-10;
+        @apply me-1 tracking-wide;
+        @apply rounded-sm outline-none border-x-0 border-t-0;
+        @apply text-base-content !important;
+        &:checked {
+            @apply bg-transparent !important;
+            @apply border-b-[3px];
+        }
     }
     ::after.tab {
         @apply text-base;
