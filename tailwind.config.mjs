@@ -10,14 +10,15 @@ export default {
 					...require("daisyui/src/theming/themes")["lofi"],
 					"--rounded-box": "1rem",
 					"--rounded-btn": "0.5rem",
-					"--rounded-badge": "1.9rem"
+					"--rounded-badge": "1.9rem",
+					"--outline": "--secondary"
 				},
 				black: {
-					...require("daisyui/src/theming/themes")["black"],
+					...require("daisyui/src/theming/themes")['business'],
 					"--rounded-box": "1rem",
 					"--rounded-btn": "0.5rem",
 					"--rounded-badge": "1.9rem",
-					"secondary": "#e5e5e5"
+					"--outline": "--secondary"
 				}
 			}
 		],
