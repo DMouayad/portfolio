@@ -32,11 +32,11 @@ const mainImage = project.images.at(0);
             />
         )
     }
-    <div class="card-body mt-4 gap-2" style="padding: 0;">
-        <div class="flex items-center justify-between lg:my-2">
+    <div class="card-body gap-2" style="padding: 0;">
+        <div class="flex items-center justify-between my-3 lg:my-5">
             <div class="text-left">
                 <h1
-                    class="capitalize card-title font-extrabold tracking-tighter md:text-2xl"
+                    class="capitalize card-title font-bold tracking-tighter md:text-xl"
                 >
                     {project.title}
                 </h1>
@@ -45,25 +45,29 @@ const mainImage = project.images.at(0);
                 {
                     project.links.map((link) => (
                         <a
-                            class="btn text-secondary lg:btn-link bg-base-200  hover:btn-outline"
+                            class="btn lg:btn-link dark:text-accent bg-base-200 hover:btn-outline"
                             target="_blank"
                             href={link.url}
                         >
                             {link.label}
-                            <Icon name="carbon:arrow-up-right" class=" mr-1" />
+                            <Icon
+                                color="currentColor"
+                                name="carbon:arrow-up-right"
+                                class=" mr-1"
+                            />
                         </a>
                     ))
                 }
             </div>
         </div>
 
-        <article class="prose text-secondary">
+        <article class="max-w-[90%] text-secondary">
             <Fragment set:html={projectEntry.body} />
         </article>
         <div class="flex gap-2 my-4 flex-wrap content-around">
             {
                 project.tags.map((tag) => (
-                    <div class="badge text-center text-xs py-3  align-middle shadow-sm badge-secondary">
+                    <div class="badge badge-ghost  text-center p-3  align-middle ">
                         {tag}
                     </div>
                 ))
