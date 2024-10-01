@@ -9,91 +9,88 @@ const works = await Astro.glob("../pages/works/*.md");
 const studies = await Astro.glob("../pages/studies/*.md");
 ---
 
-<div class="lg:mt-8 px-0">
-    <div role="tablist" class="tabs">
-        <input
-            type="radio"
-            name="nav-tabs"
-            role="tab"
-            class="tab"
-            aria-label="About"
-            checked="checked"
-        />
-        <div role="tabpanel" class="tab-content">
-            <AboutCard id="about" />
-        </div>
-
-        <input
-            type="radio"
-            name="nav-tabs"
-            role="tab"
-            class="tab"
-            aria-label="Work"
-        />
-        <div role="tabpanel" class="tab-content">
-            {
-                works.map((item) => {
-                    return (
-                        <Card
-                            title={item.frontmatter.title}
-                            timeframe={item.frontmatter.date}
-                            description={item.compiledContent()}
-                            tags={item.frontmatter.tags}
-                            org={{
-                                url: item.frontmatter.org_url,
-                                name: item.frontmatter.org_name,
-                            }}
-                            location={item.frontmatter.location}
-                        />
-                    );
-                })
-            }
-        </div>
-
-        <input
-            type="radio"
-            name="nav-tabs"
-            role="tab"
-            class="tab"
-            aria-label="Education"
-        />
-        <div role="tabpanel" class="tab-content">
-            {
-                studies.map((item) => {
-                    return (
-                        <Card
-                            title={item.frontmatter.title}
-                            timeframe={item.frontmatter.date}
-                            location={item.frontmatter.location}
-                            tags={item.frontmatter.tags}
-                            org={{
-                                url: item.frontmatter.org_url,
-                                name: item.frontmatter.org_name,
-                            }}
-                        />
-                    );
-                })
-            }
-        </div>
-        <input
-            type="radio"
-            name="nav-tabs"
-            role="tab"
-            class="tab"
-            aria-label="Projects"
-        />
-        <div role="tabpanel" class="tab-content">
-            <ProjectsSection />
-        </div>
+<div role="tablist" class="tabs h-dvh">
+    <input
+        type="radio"
+        name="nav-tabs"
+        role="tab"
+        class="tab"
+        aria-label="About"
+        checked="checked"
+    />
+    <div role="tabpanel" class="tab-content">
+        <AboutCard id="about" />
     </div>
 
-    <ThemeModeSwitch />
+    <input
+        type="radio"
+        name="nav-tabs"
+        role="tab"
+        class="tab"
+        aria-label="Work"
+    />
+    <div role="tabpanel" class="tab-content">
+        {
+            works.map((item) => {
+                return (
+                    <Card
+                        title={item.frontmatter.title}
+                        timeframe={item.frontmatter.date}
+                        description={item.compiledContent()}
+                        tags={item.frontmatter.tags}
+                        org={{
+                            url: item.frontmatter.org_url,
+                            name: item.frontmatter.org_name,
+                        }}
+                        location={item.frontmatter.location}
+                    />
+                );
+            })
+        }
+    </div>
+
+    <input
+        type="radio"
+        name="nav-tabs"
+        role="tab"
+        class="tab"
+        aria-label="Education"
+    />
+    <div role="tabpanel" class="tab-content">
+        {
+            studies.map((item) => {
+                return (
+                    <Card
+                        title={item.frontmatter.title}
+                        timeframe={item.frontmatter.date}
+                        location={item.frontmatter.location}
+                        tags={item.frontmatter.tags}
+                        org={{
+                            url: item.frontmatter.org_url,
+                            name: item.frontmatter.org_name,
+                        }}
+                    />
+                );
+            })
+        }
+    </div>
+    <input
+        type="radio"
+        name="nav-tabs"
+        role="tab"
+        class="tab"
+        aria-label="Projects"
+    />
+    <div role="tabpanel" class="tab-content">
+        <ProjectsSection />
+    </div>
 </div>
+
+<ThemeModeSwitch />
 <style>
     .tab-content {
         @apply my-5;
-        @apply lg:mt-10;
-        @apply lg:h-[520px];
+        @apply lg:h-[570px];
     }
     .tab {
         @apply btn btn-ghost;
