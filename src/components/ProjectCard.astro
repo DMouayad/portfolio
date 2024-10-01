@@ -13,11 +13,7 @@ const project = projectEntry.data;
 const mainImage = project.images.at(0);
 ---
 
-<div
-    class:list={classList}
-    class="card card-compact card-bordered my-0 mb-8"
-    {...rest}
->
+<div class:list={classList} class="card card-compact my-0 mb-8" {...rest}>
     {
         mainImage && (
             <DivImage
@@ -36,7 +32,7 @@ const mainImage = project.images.at(0);
         <div class="flex items-center justify-between my-3 lg:my-5">
             <div class="text-left">
                 <h1
-                    class="capitalize card-title font-bold tracking-tighter md:text-xl"
+                    class="capitalize card-title font-extrabold tracking-tighter md:text-xl"
                 >
                     {project.title}
                 </h1>
@@ -61,7 +57,7 @@ const mainImage = project.images.at(0);
             </div>
         </div>
 
-        <article class="max-w-[90%] text-secondary">
+        <article class="prose max-w-[90%] text-secondary">
             <Fragment set:html={projectEntry.body} />
         </article>
         <div class="flex gap-2 my-4 flex-wrap content-around">
