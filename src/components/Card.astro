@@ -17,7 +17,7 @@ const {classList, timeframe, title, description, org, tags,links,images, locatio
 {timeframe &&  
         <div class="col-auto self-start justify-self-end">
 
-   <div class="badge w-max h-max text-center badge-outline inline-block align-middle shadow-md font-mono">
+   <div class="badge p-3 text-center badge-netural font-mono">
     {timeframe}
   </div> 
   </div>
@@ -34,14 +34,14 @@ const {classList, timeframe, title, description, org, tags,links,images, locatio
     </div>
 }
     {(location || org) &&
-    <div class="sm:col-span-2 col-span-3 sm:col-start-1 flex mt-4">
+    <div class="sm:col-span-2 col-span-3 sm:col-start-1 flex mt-4 text-accent">
       {location && (
-        <Icon name="carbon:location" class="w-4 h-4 mr-1" />
-        <span class="text-sm  font-light text-secondary">{location}</span>
+        <Icon name="carbon:location" class="text-secondary w-4 h-4 mr-1" />
+        <span class="text-sm">{location}</span>
       )}
     {org &&
     <a href={org.url} target="_blank" class="link link-hover text-sm  text-right flex justify-center items-center">
-    {org.url !== "#" && <Icon name="carbon:building" class="w-4 h-4 ml-4 mr-1" />}
+    {org.url !== "#" && <Icon name="carbon:building" class="text-secondary w-4 h-4 ml-4 mr-1" />}
     {org.name}
     </a>
     }
@@ -70,7 +70,7 @@ const {classList, timeframe, title, description, org, tags,links,images, locatio
         {Array.isArray(tags) && (
           <div class="flex flex-wrap content-around gap-2 my-4">
             {tags.map(item => 
-              <span class="badge text-center inline-block align-middle w-max h-max text-sm  badge-outline shadow-md mb-1" :key={item}>{item}</span>
+              <span class="badge text-center badge-ghost p-3 dark:bg-base-300" >{item}</span>
             )}
           </div>
         )}
