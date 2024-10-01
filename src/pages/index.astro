@@ -58,23 +58,21 @@ function getPublicAssetUrl(assetPath: string): string {
     />
     <title>{title}</title>
   </head>
-  <body
-    class="flex flex-col items-center w-screen overflow-x-hidden lg:overflow-hidden"
-  >
-    <main class="">
-      <div class="w-[92vw] mx-auto md:max-w-7xl md:w-[98vw] sm:w-[95vw]">
-        <div class="flex flex-col lg:flex-row">
-          <div class="lg:fixed">
-            <Header />
-          </div>
-          <div class="invisible lg:visible lg:basis-2/6"></div>
-          <div class="lg:basis-5/6 px-4 lg:px-0">
-            <MainTabs />
-          </div>
+  <body class="h-dvh w-full overflow-x-hidden lg:overflow-hidden">
+    <main
+      class="max-h-max w-[92vw] mx-auto md:max-w-7xl md:w-[98vw] sm:w-[95vw]"
+    >
+      <div class="flex flex-col lg:flex-row">
+        <div class="lg:fixed">
+          <Header />
+        </div>
+        <div class="invisible lg:visible lg:basis-2/6"></div>
+        <div class="lg:basis-5/6 px-4 lg:px-0">
+          <MainTabs />
         </div>
       </div>
     </main>
-    <footer class="lg:invisible pt-2 pb-6">
+    <footer class="flex justify-center lg:invisible pt-4 pb-6">
       <MadeWithAstro />
     </footer>
   </body>
