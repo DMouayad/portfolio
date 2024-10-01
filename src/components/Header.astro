@@ -26,16 +26,16 @@ const contact = await Astro.glob("../pages/contact/*.md");
       />
     </div>
 
-    <div class="flex md:justify-between relative my-3">
+    <div class="flex md:justify-between relative my-5">
       <h1 class="text-4xl font-extrabold tracking-tight md:text-3xl relative">
         {about.frontmatter.name}
       </h1>
     </div>
-    <h2 class="text-lg text-secondary mb-2">
+    <h2 class="font-semibold text-lg text-secondary mb-2">
       {about.frontmatter.designation}
     </h2>
-    <div class="flex text-secondary">
-      <Icon color="currentColor" name="carbon:location" class="w-5 h-5 mr-1" />
+    <div class="flex text-sm text-secondary">
+      <Icon color="currentColor" name="carbon:location" class="w-4 h-4 mr-1" />
       <p>{about.frontmatter.location}</p>
     </div>
     <div class="flex mt-8 content-between items-center justify-between">
