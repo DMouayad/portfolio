@@ -2,8 +2,8 @@
 import "@fontsource-variable/dm-sans";
 import Sidebar from "../components/Sidebar.astro";
 import MainTabs from "../components/MainTabs.astro";
-import MadeWithAstro from "../components/MadeWithAstro.astro";
 import { BASE_PATH } from "@/constants";
+import Footer from "../components/Footer.astro";
 
 const title = "Mouayad Alhamwi | Website";
 
@@ -72,7 +72,7 @@ function getPublicAssetUrl(assetPath: string): string {
       </div>
     </main>
     <footer class="flex justify-center lg:invisible pt-4 pb-6">
-      <MadeWithAstro />
+      <Footer />
     </footer>
   </body>
 </html>
