@@ -5,13 +5,14 @@ import avatar from "/src/images/avatar.png";
 
 import * as about from "../pages/about/about.md";
 import ContactCard from "./ContactCard.astro";
-import MadeWithAstro from "../components/MadeWithAstro.astro";
 
 const contact = await Astro.glob("../pages/contact/*.md");
 ---
 
-<div class="my-12 lg:my-36 relative lg:max-w-xs">
-  <article class="flex flex-col px-4 lg:px-0 lg:w-full lg:max-w-xs">
+<div class="">
+  <article
+    class="lg:h-screen mx-auto max-w-md py-9 justify-center flex flex-col px-4 lg:px-0 lg:w-full lg:max-w-xs"
+  >
     <div
       class="flex-shrink-0 w-20 md:w-24 rounded-full shadow-sm overflow-hidden"
     >
@@ -30,16 +31,14 @@ const contact = await Astro.glob("../pages/contact/*.md");
         {about.frontmatter.name}
       </h1>
     </div>
-    <h2 class="text-lg text-secondary mb-1">
+    <h2 class="text-lg text-secondary mb-2">
       {about.frontmatter.designation}
     </h2>
-    <div class="flex">
-      <Icon name="carbon:location" class="w-4 h-4 mr-1" />
-      <p class="text-sm text-secondary">{about.frontmatter.location}</p>
+    <div class="flex text-secondary">
+      <Icon color="currentColor" name="carbon:location" class="w-5 h-5 mr-1" />
+      <p>{about.frontmatter.location}</p>
     </div>
-    <div
-      class="flex flex-wrap content-between gap-y-6 md:gap-x-3 my-5 mt-8 items-center justify-between lg:justify-start"
-    >
+    <div class="flex mt-8 content-between items-center justify-between">
       {
         contact.map((item) => {
           return (
@@ -51,9 +50,6 @@ const contact = await Astro.glob("../pages/contact/*.md");
           );
         })
       }
-    </div>
-    <div class="invisible lg:visible lg:mt-12">
-      <MadeWithAstro />
     </div>
   </article>
 </div>
