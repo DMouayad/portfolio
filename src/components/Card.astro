@@ -5,7 +5,7 @@ const {classList, timeframe, title, description, org, tags,links,images, locatio
   Astro.props;
 ---
 
-<div class:list={classList} class="card card-compact card-bordered md:w-112 lg:w-128  my-0">
+<div class:list={classList} class="card card-compact md:w-112 lg:w-128  my-0">
   <div class="card-body gap-4" style="padding: 0;">
     <div class="grid grid-cols-3 gap-y-0">
       {title &&
@@ -60,7 +60,7 @@ const {classList, timeframe, title, description, org, tags,links,images, locatio
     }
     <div class="grid grid-cols-3 gap-4 place-items-center">
       <div class="self-start col-span-3 justify-self-start text-left">
-        <article class="prose text-secondary">
+        <article class="prose ">
           {description instanceof Object ?
               <description.Content/>
           :
