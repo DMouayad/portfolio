@@ -30,5 +30,6 @@ export default {
 			},
 		},
 	},
+	darkMode: ['class', '[data-theme="black"]'],
 	plugins: [require("@tailwindcss/typography"), require("daisyui")],
 }
