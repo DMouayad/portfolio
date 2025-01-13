@@ -4,8 +4,12 @@ import ThemeModeSwitch from "./ThemeModeSwitch.astro";
 import Card from "./Card.astro";
 import ProjectsSection from "./ProjectsSection.astro";
 
-const works = await Astro.glob("../pages/works/*.md");
-const studies = await Astro.glob("../pages/studies/*.md");
+const works = Object.values(
+    import.meta.glob("../pages/works/*.md", { eager: true }),
+);
+const studies = Object.values(
+    import.meta.glob("../pages/studies/*.md", { eager: true }),
+);
 ---
 
 <div role="tablist" class="tabs max-w-[930px] lg:h-dvh">

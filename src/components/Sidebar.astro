@@ -6,7 +6,9 @@ import avatar from "/src/images/avatar.png";
 import * as about from "../pages/about/about.md";
 import ContactCard from "./ContactCard.astro";
 
-const contact = await Astro.glob("../pages/contact/*.md");
+const contact = Object.values(
+  import.meta.glob("../pages/contact/*.md", { eager: true }),
+);
 ---
 
 <div

@@ -61,7 +61,7 @@ const {classList, timeframe, title, description, org, tags,links,images, locatio
     <div class="grid grid-cols-3 gap-4 place-items-center">
       <div class="self-start col-span-3 justify-self-start text-left">
         <article class="prose ">
-          {description instanceof Object ?
+          {description?.Content ?
               <description.Content/>
           :
           <Fragment set:html={description}></Fragment>
