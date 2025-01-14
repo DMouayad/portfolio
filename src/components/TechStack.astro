@@ -1,0 +1,107 @@
+---
+const techStack = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Node.js",
+    "Express.js",
+    "tailwind",
+    "SQL",
+    "Typescript",
+];
+const perRow = 3;
+---
+
+<section class="text-running-way-sec">
+    <div class="text-desc">
+        <p class="mobile-text-center">“Every day I grind!”</p>
+    </div>
+    <div class="text-running-way-left text-running-way">
+        <div class="text-row">
+            <div class="single-services-list">
+                {techStack.map(el => 
+                    <div class="service-name">{el}</div>
+                    <div class="break"></div>
+                )}
+            </div>
+            <div class="single-services-list">
+                {techStack.map(el => 
+                    <div class="service-name">{el}</div>
+                    <div class="break"></div>
+                )}
+            </div><div class="single-services-list">
+                {techStack.map(el => 
+                    <div class="service-name">{el}</div>
+                    <div class="break"></div>
+                )}
+            </div>
+        </div>
+    </div>
+    <div class="text-running-way-right text-running-way">
+        <div class="text-row">
+            <div class="single-services-list">
+                {techStack.map(el => 
+                    <div class="service-name">{el}</div>
+                    <div class="break"></div>
+                )}
+            </div>
+            <div class="single-services-list">
+                {techStack.map(el => 
+                    <div class="service-name">{el}</div>
+                    <div class="break"></div>
+                )}
+            </div><div class="single-services-list">
+                {techStack.map(el => 
+                    <div class="service-name">{el}</div>
+                    <div class="break"></div>
+                )}
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    import "@assets/runningText2";
+</script>
+
+<style>
+    section {
+        height: 500px;
+    }
+    .text-running-way-sec {
+        @apply flex flex-col items-center justify-center;
+    }
+    .text-running-way-sec .text-desc {
+        @apply mb-12 text-2xl font-normal;
+    }
+    .text-running-way-sec .text-desc p {
+        @apply text-gray-500;
+    }
+    .text-running-way-sec .text-running-way {
+        @apply w-full h-[70px] overflow-hidden whitespace-nowrap;
+    }
+    .text-running-way-sec .text-running-way .text-row {
+        @apply w-fit;
+    }
+    .text-running-way-sec .text-running-way .single-services-list {
+        @apply inline-block whitespace-nowrap text-[0];
+    }
+    .text-running-way-sec
+        .text-running-way
+        .single-services-list
+        .service-name {
+        @apply inline-block h-[70px] text-6xl leading-[70px] font-semibold overflow-hidden text-black;
+    }
+    .text-running-way-sec .text-running-way .single-services-list .break {
+        @apply inline-block w-[100px] h-[70px] relative;
+    }
+    .text-running-way-sec
+        .text-running-way
+        .single-services-list
+        .break::before {
+        content: "";
+        @apply w-[80%] h-[2px] bg-black absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2;
+    }
+    .text-running-way-sec .text-running-way-right {
+        @apply mt-4;
+    }
+</style>

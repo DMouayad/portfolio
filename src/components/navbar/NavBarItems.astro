@@ -1,0 +1,13 @@
+---
+import NavBarItem from "./NavBarItem.astro";
+
+const items = [
+    { title: "About", link: "#about-section" },
+    { title: "Experience", link: "#experience-section" },
+    { title: "Education", link: "#education-section" },
+    { title: "Projects", link: "#projects-section" },
+    { title: "Contact", link: "#contact-section" },
+];
+---
+
+{items.map((item) => <NavBarItem link={item.link} title={item.title} />)}

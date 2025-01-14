@@ -1,0 +1,39 @@
+.fade-up-box .fade-up-item,
+.single-advantage-image {
+    transition: 0.5s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(0, 30px);
+}
+
+.fade-up-box.show>.fade-up-item,
+.single-advantage-image.show,
+.single-advantage-image.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+.single-advantage-image.show .svg-stroke-progress {
+    animation: line-ani 1s linear forwards 0.33s;
+}
+
+@keyframes line-ani {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.fade-up-box.no-duration .fade-up-item,
+.single-advantage-image.no-duration .svg-fade,
+.single-advantage-image.no-duration {
+    transition-duration: 0s;
+    transition-delay: 0s !important;
+}
+
+.landing-fade-up-box,
+.fade-up-box,
+.single-advantage-image {
+    margin-bottom: 100px;
+}

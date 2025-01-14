@@ -1,0 +1,52 @@
+---
+import "@fontsource/almarai";
+import Image from "astro/components/Image.astro";
+import avatar from "/src/images/avatar.png";
+---
+
+<section id="about-section">
+    <div class="content">
+        <div class="avatar">
+            <div class="w-24 rounded-full">
+                <Image alt="Tailwind CSS Navbar component" src={avatar} />
+            </div>
+        </div>
+        <div class="mx-11 ps-12">
+            <div class="text-2xl text-[var(--text-grey)]">About Me</div>
+            <div
+                class="text-4xl my-3 font-semibold"
+                style="direction: rtl;font-family: Almarai"
+            >
+                مؤيد الحموي
+            </div>
+            <br />
+            <div class="font-normal text-lg">
+                Hey! I'm Mouayad Alhamwi. A Muslim\Long life learner.
+                <br />
+                I love to experiment with everything related to tech & software.
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        height: 90vh;
+        position: relative;
+    }
+    .content {
+        @apply max-w-screen-md mx-auto;
+        @apply flex flex-row items-stretch  justify-center;
+    }
+    .content::after {
+        content: "";
+        width: 2px;
+        height: 19vh;
+        background-color: #898989;
+        border-radius: 1px;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+    }
+</style>

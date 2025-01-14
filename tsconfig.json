@@ -1,8 +1,12 @@
 {
   "extends": "astro/tsconfigs/base",
-  
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
@@ -11,9 +15,12 @@
       "@/*": [
         "src/*"
       ],
+      "@components/*": [
+        "src/components/*"
+      ],
       "@assets/*": [
         "src/assets/*"
-      ],
+      ]
     },
   }
 }

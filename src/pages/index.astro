@@ -1,104 +1,91 @@
 ---
-import "@fontsource-variable/dm-sans";
-import Sidebar from "../components/Sidebar.astro";
-import MainTabs from "../components/MainTabs.astro";
+import "@fontsource-variable/raleway";
+import "@assets/global.css";
 import { BASE_PATH } from "@/constants";
 import Footer from "../components/Footer.astro";
-
-const title = "Mouayad Alhamwi | Website";
+import Intro from "@/components/Intro.astro";
+import NavBar from "@/components/navbar/NavBar.astro";
+import TechStack from "@/components/TechStack.astro";
+import AboutMe from "@/components/AboutMe.astro";
+import Experience from "@/components/Experience.astro";
+const title = "Portfolio | Mouayad Alhamwi";
 
 function getPublicAssetUrl(assetPath: string): string {
-  const url = new URL(BASE_PATH + assetPath, Astro.url.origin);
-  return url.toString();
+    const url = new URL(BASE_PATH + assetPath, Astro.url.origin);
+    return url.toString();
 }
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script is:inline>
-      if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", "lofi");
-      } else
-        document.documentElement.setAttribute(
-          "data-theme",
-          localStorage.getItem("theme"),
-        );
-    </script>
-    <script>
-      import { themeChange } from "theme-change";
-      themeChange();
-    </script>
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href={getPublicAssetUrl("/favicon/apple-touch-icon.png")}
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href={getPublicAssetUrl("/favicon/favicon-32x32.png")}
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href={getPublicAssetUrl("/favicon/favicon-16x16.png")}
-    />
-    <link
-      rel="manifest"
-      href={getPublicAssetUrl("/favicon/site.webmanifest")}
-    />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="This is the offical website for Mouayad Alhamwi"
-    />
-    <title>{title}</title>
-  </head>
-  <body class="h-dvh w-full overflow-x-hidden lg:overflow-hidden">
-    <main
-      class="min-h-screen lg:min-h-auto max-h-max w-[92vw] max-w-7xl mx-auto sm:w-[95vw]"
-    >
-      <div class="flex flex-col lg:flex-row">
-        <div class="lg:basis-1/6 lg:mr-8">
-          <Sidebar />
-        </div>
-        <div class="lg:basis-5/6 px-2 lg:px-0">
-          <MainTabs />
-        </div>
-      </div>
-    </main>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href={getPublicAssetUrl("/favicon/apple-touch-icon.png")}
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href={getPublicAssetUrl("/favicon/favicon-32x32.png")}
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href={getPublicAssetUrl("/favicon/favicon-16x16.png")}
+        />
+        <link
+            rel="manifest"
+            href={getPublicAssetUrl("/favicon/site.webmanifest")}
+        />
+        <meta name="generator" content={Astro.generator} />
+        <meta
+            name="description"
+            content="Welcome to my corner of web. My name is Mouayad Alhamwi, I'm a Muslim Software Engineer"
+        />
+        <title>{title}</title>
+    </head>
+    <body class="h-dvh w-full overflow-x-hidden">
+        <main>
+            <NavBar />
+            <Intro />
+            <TechStack />
+            <AboutMe />
+            <Experience />
+        </main>
+    </body>
     <footer class="flex justify-center lg:invisible pt-4 pb-6">
-      <Footer />
+        <Footer />
     </footer>
-  </body>
 </html>
+
 <script src="/src/assets/main.js"></script>
-
+<script src="/src/assets/fadeUp.js"></script>
 <style is:global>
-  body {
-    font-family: "DM Sans Variable", sans-serif;
-  }
-
-  @media (min-width: 768px) {
-    .container {
-      display: flex;
-      flex-wrap: wrap;
+    body {
+        font-family: "Raleway Variable", sans-serif;
     }
-  }
 
-  @media only screen and (max-width: 480px) {
+    @media (min-width: 768px) {
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        * {
+            font-size: 13px;
+        }
+    }
     * {
-      font-size: 13px;
+        scrollbar-color: oklch(var(--bc)) oklch(var(--b1)) !important;
     }
-  }
-  * {
-    scrollbar-color: oklch(var(--bc)) oklch(var(--b1)) !important;
-  }
-  .card {
-    @apply p-8 card-bordered border-base-300 dark:border-base-content/20 hover:shadow-lg transition-shadow w-full;
-  }
+    section {
+        height: 100vh;
+    }
 </style>
