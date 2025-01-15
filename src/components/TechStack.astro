@@ -9,7 +9,9 @@ const techStack = [
     "SQL",
     "Typescript",
 ];
-const perRow = 3;
+function shuffleArraySort(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
 ---
 
 <section class="text-running-way-sec">
@@ -40,18 +42,18 @@ const perRow = 3;
     <div class="text-running-way-right text-running-way">
         <div class="text-row">
             <div class="single-services-list">
-                {techStack.map(el => 
+                {shuffleArraySort(techStack).map(el => 
                     <div class="service-name">{el}</div>
                     <div class="break"></div>
                 )}
             </div>
             <div class="single-services-list">
-                {techStack.map(el => 
+                {shuffleArraySort(techStack).map(el => 
                     <div class="service-name">{el}</div>
                     <div class="break"></div>
                 )}
             </div><div class="single-services-list">
-                {techStack.map(el => 
+                {shuffleArraySort(techStack).map(el => 
                     <div class="service-name">{el}</div>
                     <div class="break"></div>
                 )}
@@ -59,9 +61,7 @@ const perRow = 3;
         </div>
     </div>
 </section>
-<script>
-    import "@assets/runningText2";
-</script>
+<script   src="/src/assets/runningText2"></script>
 
 <style>
     section {
@@ -70,6 +70,7 @@ const perRow = 3;
     .text-running-way-sec {
         @apply flex flex-col items-center justify-center;
     }
+ 
     .text-running-way-sec .text-desc {
         @apply mb-12 text-2xl font-normal;
     }
@@ -78,6 +79,7 @@ const perRow = 3;
     }
     .text-running-way-sec .text-running-way {
         @apply w-full h-[70px] overflow-hidden whitespace-nowrap;
+        will-change: transform;
     }
     .text-running-way-sec .text-running-way .text-row {
         @apply w-fit;
@@ -104,4 +106,31 @@ const perRow = 3;
     .text-running-way-sec .text-running-way-right {
         @apply mt-4;
     }
+
+  /* Text Running Way with Fade Effect */
+  .text-running-way-sec .text-running-way {
+    @apply w-full h-[70px] overflow-hidden whitespace-nowrap relative;
+  }
+
+  .text-running-way-sec .text-running-way::before,
+  .text-running-way-sec .text-running-way::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .text-running-way-sec .text-running-way::before {
+    left: 0;
+    width: 110px;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0), rgb(255, 255, 255));
+  }
+
+  .text-running-way-sec .text-running-way::after {
+    right: 0;
+    width: 110px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255));
+  }
+
 </style>

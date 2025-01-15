@@ -8,6 +8,7 @@ import NavBar from "@/components/navbar/NavBar.astro";
 import TechStack from "@/components/TechStack.astro";
 import AboutMe from "@/components/AboutMe.astro";
 import Experience from "@/components/Experience.astro";
+import Projects from "@/components/Projects.astro";
 const title = "Portfolio | Mouayad Alhamwi";
 
 function getPublicAssetUrl(assetPath: string): string {
@@ -56,15 +57,17 @@ function getPublicAssetUrl(assetPath: string): string {
             <TechStack />
             <AboutMe />
             <Experience />
+            <Projects />
+            <section class="">dads</section>
         </main>
     </body>
-    <footer class="flex justify-center lg:invisible pt-4 pb-6">
+    <!-- <footer class="flex justify-center lg:invisible pt-4 pb-6">
         <Footer />
-    </footer>
+    </footer> -->
 </html>
 
 <script src="/src/assets/main.js"></script>
-<script src="/src/assets/fadeUp.js"></script>
+<script async src="/src/assets/fadeUp.js"></script>
 <style is:global>
     body {
         font-family: "Raleway Variable", sans-serif;
