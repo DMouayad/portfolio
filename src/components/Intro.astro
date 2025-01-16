@@ -1,9 +1,18 @@
-<section
-    id="intro"
-    class="flex flex-col items-center justify-center bg-secondary"
->
-    <h1 class="text-8xl font-semibold text-white drop-shadow">
-        Mouayad AlHamwi
-    </h1>
-    <h2 class="mt-6 text-3xl font-semibold text-base-100">Software Engineer</h2>
+---
+import introImg from "../images/intro.jpg";
+import DivImage from "./DivImage.astro";
+---
+
+<section id="intro" class="text-center">
+    <DivImage
+        classList="bg-cover  bg-center h-screen  w-screen flex flex-col items-center  justify-center"
+        options={{ src: introImg }}
+    >
+        <h1 class="text-8xl font-semibold text-white drop-shadow-sm">
+            Mouayad AlHamwi
+        </h1>
+        <h2 class="mt-6 text-3xl font-semibold text-base-200 drop-shadow-sm">
+            Software Engineer
+        </h2>
+    </DivImage>
 </section>

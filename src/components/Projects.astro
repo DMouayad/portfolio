@@ -1,3 +1,10 @@
+---
+import { getCollection } from "astro:content";
+import DivImage from "./DivImage.astro";
+
+const projects = await getCollection("projects");
+---
+
 <section class="projects-section pt-48" id="projects">
     <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/6"></div>
@@ -34,15 +41,33 @@
             </div>
         </div>
     </div>
-    <div class="space-holder">
+
+    <div id="projects-list" class="space-holder">
         <div class="sticky">
             <div class="horizontal">
                 <section role="feed" class="cards">
-                    <article class="project-card"></article>
-                    <article class="project-card"></article>
-                    <article class="project-card"></article>
-                    <article class="project-card"></article>
-                    <article class="project-card"></article>
+                    {
+                        projects.map((project) => (
+                            <article class="project-card">
+                                <DivImage
+                                    classList="project-img"
+                                    options={{
+                                        src: project.data.images.at(0),
+                                        height: 700,
+                                        inferSize: true,
+                                    }}
+                                />
+                                <div class="project-title">
+                                    {project.data.title}
+                                </div>
+                                <div class="project-desc">
+                                    {project.data.tags.reduce(
+                                        (el1, el2) => `${el1}, ${el2}`,
+                                    )}
+                                </div>
+                            </article>
+                        ))
+                    }
                 </section>
             </div>
         </div>
@@ -100,7 +125,7 @@
     .projects-section {
         transition: all 0.3s ease;
         height: max-content;
-        @apply pt-48 dark:text-white;
+        @apply pt-48 dark:text-white relative;
         &.dark {
             @apply bg-[#222];
         }
@@ -121,18 +146,17 @@
         @apply w-[550px] h-3/4 max-w-[85vw] flex flex-col justify-center items-start;
         @apply rounded-lg;
         @apply relative;
-        background-color: #111f30;
         margin-right: 75px;
         flex-shrink: 0;
     }
-    .projects-img {
-        @apply w-full h-[312px] mb-8 overflow-hidden rounded-3xl bg-white dark:bg-gray-800 shadow-md relative flex justify-center items-center cursor-pointer hover:scale-105 transition-transform duration-300;
+    .project-img {
+        @apply w-full h-[280px] bg-center bg-no-repeat bg-cover  mb-8 overflow-hidden rounded-3xl  shadow-md relative flex justify-center items-center cursor-pointer hover:scale-105 transition-transform duration-300;
     }
     .project-title {
-        @apply text-2xl font-bold text-gray-800 dark:text-white whitespace-nowrap overflow-ellipsis;
+        @apply text-2xl font-semibold text-gray-800 dark:text-white whitespace-nowrap overflow-ellipsis;
     }
-    .project-description {
-        @apply text-gray-500 dark:text-gray-400 whitespace-nowrap overflow-ellipsis text-lg mb-5;
+    .project-desc {
+        @apply text-gray-500 dark:text-gray-400 whitespace-nowrap overflow-ellipsis text-lg mb-5 mt-1;
     }
 
     .circular-text {

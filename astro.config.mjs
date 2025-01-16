@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 import compress from "astro-compress";
+import icon from "astro-icon";
 import robotsConfig from './robots-txt.config';
 import robotsTxt from "astro-robots-txt"
 import sitemap from "@astrojs/sitemap";
@@ -10,7 +11,7 @@ import { BASE_PATH } from './src/constants';
 export default defineConfig({
   site: 'https://DMouayad.github.io',
   base: BASE_PATH,
-  integrations: [tailwind(), sitemap(), robotsTxt(robotsConfig), compress()],
+  integrations: [tailwind(), icon(), sitemap(), robotsTxt(robotsConfig), compress()],
   output: "static",
   i18n: {
     defaultLocale: 'en',

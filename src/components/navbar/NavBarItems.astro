@@ -1,13 +1,24 @@
 ---
 import NavBarItem from "./NavBarItem.astro";
-
+interface Props {
+    isInDropdownMenu: boolean;
+}
+const { isInDropdownMenu } = Astro.props;
 const items = [
     { title: "About", link: "#about-section" },
     { title: "Experience", link: "#experience-section" },
     { title: "Education", link: "#education-section" },
-    { title: "Projects", link: "#projects-section" },
+    { title: "Projects", link: "#projects" },
     { title: "Contact", link: "#contact-section" },
 ];
 ---
 
-{items.map((item) => <NavBarItem link={item.link} title={item.title} />)}
+{
+    items.map((item) => (
+        <NavBarItem
+            isInDropMenu={isInDropdownMenu}
+            link={item.link}
+            title={item.title}
+        />
+    ))
+}

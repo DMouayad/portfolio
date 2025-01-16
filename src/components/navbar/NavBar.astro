@@ -1,13 +1,20 @@
 ---
-import Image from "astro/components/Image.astro";
 import NavBarItems from "./NavBarItems.astro";
 ---
 
-<div class="absolute h-[90px] py-4 px-8 top-0 left-0 z-[999] w-full">
-    <div class="navbar shadow-md bg-base-100 rounded-md">
+<div class="h-[90px] pt-10 lg:py-4 px-8 top-0 left-0 z-[999] fixed w-full">
+    <div
+        id="nav"
+        class="navbar rounded-md bg-base-100 md:bg-transparent shadow-md md:shadow-none md:backdrop-blur-md transition-all duration-400"
+    >
         <div class="navbar-start">
             <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <div
+                    id="nav-dropdown"
+                    tabindex="0"
+                    role="button"
+                    class="btn btn-ghost lg:hidden"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-5 w-5"
@@ -24,17 +31,37 @@ import NavBarItems from "./NavBarItems.astro";
                 </div>
                 <ul
                     tabindex="0"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-md z-[1] mt-3 w-[80vw] lg:w-48 p-2 drop-shadow-md"
                 >
-                    <NavBarItems />
+                    <NavBarItems isInDropdownMenu={true} />
                 </ul>
             </div>
         </div>
-        <div class="navbar-center hidden lg:flex">
+        <div id="nav-menu" class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
-                <NavBarItems />
+                <NavBarItems isInDropdownMenu={false} />
             </ul>
         </div>
         <div class="navbar-end"></div>
     </div>
 </div>
+
+<script>
+    const nav = document.getElementById("nav");
+    const navMenu = document.getElementById("nav-menu");
+    const navDropdown = document.getElementById("nav-dropdown");
+
+    window.addEventListener("scroll", function () {
+        const scrollY = window.scrollY; // Get current scroll position
+
+        if (scrollY > 0) {
+            navMenu.classList.remove("lg:flex");
+            navDropdown?.classList.remove("lg:hidden");
+            nav.style.width = "70px";
+        } else {
+            navMenu.classList.add("lg:flex");
+            navDropdown?.classList.add("lg:hidden");
+            nav.style.width = "100%";
+        }
+    });
+</script>

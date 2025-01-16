@@ -16,6 +16,9 @@
     "@fontsource/almarai": "^5.1.1",
     "astro": "^5.1.5",
     "astro-compress": "^2.3.6",
+    "astro-icon": "^1.1.5",
+    "@iconify-json/carbon": "^1.2.5",
+    "@iconify-json/mdi": "^1.2.2",
     "sharp": "^0.33.5",
     "tailwindcss": "^3.4.17"
   },

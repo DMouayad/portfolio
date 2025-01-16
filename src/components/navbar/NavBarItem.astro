@@ -2,17 +2,18 @@
 interface Props {
     link: string;
     title: string;
+    isInDropMenu: boolean;
 }
-const { link, title } = Astro.props;
+const { link, title, isInDropMenu = false } = Astro.props;
 ---
 
-<li>
-    <a href=`${link}`>{title}</a>
+<li class={isInDropMenu ? "" : "text-white text-base"}>
+    <a class={isInDropMenu ? "p-6 text-xl" : ""} href=`${link}`>{title}</a>
 </li>
 
 <style>
     li {
-        @apply text-base font-semibold;
+        @apply drop-shadow-sm font-semibold  hover:bg-base-100 hover:text-black transition-all duration-200 rounded-md;
         a {
             @apply px-6;
         }
