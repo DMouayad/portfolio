@@ -1,5 +1,5 @@
 ---
-import NavBarItems from "./NavBarItems.astro";
+import NavBarItems from "../NavBarItems.astro";
 ---
 
 <div class="h-[90px] pt-10 lg:py-4 px-8 top-0 left-0 z-[999] fixed w-full">
@@ -55,11 +55,11 @@ import NavBarItems from "./NavBarItems.astro";
         const scrollY = window.scrollY; // Get current scroll position
 
         if (scrollY > 0) {
-            navMenu.classList.remove("lg:flex");
+            navMenu?.classList.remove("lg:flex");
             navDropdown?.classList.remove("lg:hidden");
             nav.style.width = "70px";
         } else {
-            navMenu.classList.add("lg:flex");
+            navMenu?.classList.add("lg:flex");
             navDropdown?.classList.add("lg:hidden");
             nav.style.width = "100%";
         }

@@ -1,0 +1,76 @@
+---
+import { Image } from "astro:assets";
+import img from "../images/asg_project/1.png";
+---
+
+<html>
+    <body class="h-screen w-screen">
+        <div
+            class="max-w-screen 2xl:max-w-400 mx-auto px-8 lg:px-8 relative pb-12 overflow-hidden"
+        >
+            <div
+                class="relative flex flex-col items-start p-8 overflow-hidden bg-black isolate lg:p-12"
+            >
+                <Image
+                    src={img}
+                    alt="#_"
+                    width="1000"
+                    height="1000"
+                    loading="lazy"
+                    decoding="async"
+                    class="absolute inset-0 object-cover object-top -z-10 size-full"
+                    data--h-bstatus="5PROCESSED"
+                    data--h-bresult="clear"
+                />
+                <div
+                    class="absolute inset-0 z-20 bg-linear-360 from-black via-black/60 to-black/90"
+                >
+                </div>
+                <div
+                    class="flex flex-col justify-between h-full gap-20 text-white lg:gap-50"
+                >
+                    <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+                        <h1
+                            class="text-lg sm:text-xl md:text-2xl font-light text-balance"
+                        >
+                            The Elegance of Historic Architecture and Design
+                        </h1>
+                        <span
+                            class="text-xs uppercase text-base-400 lg:col-start-3 lg:ml-auto"
+                        >
+                            <time datetime="January 15, 2025">
+                                January 15, 2025</time
+                            >
+                        </span>
+                        <div class="lg:row-start-4 col-span-full">
+                            <h3
+                                class="text-4xl leading-tight sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white leading-12 lg:leading-14 font-display indent-8 lg:indent-48"
+                            >
+                                A journey through the enduring beauty, intricate
+                                craftsmanship, and timeless design of historic
+                                buildings and architectural masterpieces.
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between gap-4">
+                        <div>
+                            <ul>
+                                <li class="inline-block mr-2">
+                                    <a
+                                        class="text-sm text-white uppercase hover:text-base-400"
+                                        href="/blog/tags/design"
+                                    >
+                                        design
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-sm uppercase text-base-400">
+                            Isabel Martinez
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

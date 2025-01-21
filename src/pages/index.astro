@@ -1,96 +1,23 @@
 ---
-import "@fontsource-variable/raleway";
-import "@assets/global.css";
-import { BASE_PATH } from "@/constants";
-import Footer from "../components/Footer.astro";
-import Intro from "@/components/Intro.astro";
-import NavBar from "@/components/navbar/NavBar.astro";
-import TechStack from "@/components/TechStack.astro";
-import AboutMe from "@/components/AboutMe.astro";
-import Experience from "@/components/Experience.astro";
-import Projects from "@/components/Projects.astro";
-import ContactMe from "@/components/ContactMe.astro";
-const title = "Portfolio | Mouayad Alhamwi";
-
-function getPublicAssetUrl(assetPath: string): string {
-    const url = new URL(BASE_PATH + assetPath, Astro.url.origin);
-    return url.toString();
-}
+import AboutMe from "@/components/home/AboutMe.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ContactMe from "@/components/home/ContactMe.astro";
+import Experience from "@/components/home/Experience.astro";
+import Hero from "@/components/home/Hero.astro";
+import NavBar from "@/components/home/NavBar.astro";
+import Projects from "@/components/home/Projects.astro";
+import TechStack from "@/components/home/TechStack.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href={getPublicAssetUrl("/favicon/apple-touch-icon.png")}
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href={getPublicAssetUrl("/favicon/favicon-32x32.png")}
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href={getPublicAssetUrl("/favicon/favicon-16x16.png")}
-        />
-        <link
-            rel="manifest"
-            href={getPublicAssetUrl("/favicon/site.webmanifest")}
-        />
-        <meta name="generator" content={Astro.generator} />
-        <meta
-            name="description"
-            content="Welcome to my corner of web. My name is Mouayad Alhamwi, I'm a Muslim Software Engineer"
-        />
-        <title>{title}</title>
-    </head>
-    <body class="h-dvh w-full overflow-x-hidden">
-        <main>
-            <NavBar />
-            <Intro />
-            <TechStack />
-            <AboutMe />
-            <Experience />
-            <Projects />
-
-            <ContactMe />
-        </main>
-    </body>
-    <!-- <footer class="flex justify-center lg:invisible pt-4 pb-6">
-        <Footer />
-    </footer> -->
-</html>
-
-<script src="/src/assets/main.js"></script>
-<script async src="/src/assets/fadeUp.js"></script>
-<style is:global>
-    body {
-        font-family: "Raleway Variable", sans-serif;
-    }
-
-    @media (min-width: 768px) {
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media only screen and (max-width: 480px) {
-        * {
-            font-size: 13px;
-        }
-    }
-    * {
-        scrollbar-color: oklch(var(--bc)) oklch(var(--b1)) !important;
-    }
-    section {
-        height: 100vh;
-    }
-</style>
+<BaseLayout
+    title="Portfolio"
+    description="Welcome to my corner of web. My name is Mouayad Alhamwi, I'm a Muslim Software Engineer focused on Backend Development and I do some front-end dev on the side with Astro & TailwindCSS"
+>
+    <NavBar />
+    <Hero />
+    <TechStack />
+    <AboutMe />
+    <Experience />
+    <Projects />
+    <ContactMe />
+</BaseLayout>

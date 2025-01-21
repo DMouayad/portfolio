@@ -1,0 +1,47 @@
+---
+import "@fontsource-variable/raleway";
+import "@assets/global.css";
+import BaseHead from "@/components/BaseHead.astro";
+
+interface Props {
+    title: string;
+    description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+    <BaseHead title={title} description={description} />
+    <body class="h-dvh w-full overflow-x-hidden relative">
+        <main class="w-screen">
+            <slot />
+        </main>
+        <script src="/src/assets/imagesLazyLoader.js"></script>
+        <script async src="/src/assets/fadeUp.js"></script>
+    </body>
+</html>
+
+<style is:global>
+    body {
+        font-family: "Raleway Variable", sans-serif;
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        * {
+            font-size: 13px;
+        }
+    }
+    * {
+        scrollbar-color: oklch(var(--bc)) oklch(var(--b1)) !important;
+    }
+    section {
+        height: 100vh;
+    }
+</style>

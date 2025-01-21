@@ -1,26 +1,21 @@
 class FadeUpAnimator {
     constructor() {
         this.fadeBoxes = document.querySelectorAll(".fade-up-box");
-        this.landingFadeUpItems = document.querySelectorAll(
-            ".landing-fade-up-box .landing-fade-up-item",
-        );
-        this.advantageImages = document.querySelectorAll(
-            ".single-advantage-image",
-        );
+
         this.setInitialDelays();
         this.initScrollHandler();
         this.handleScroll();
     }
 
     setInitialDelays() {
-        this.landingFadeUpItems.forEach((item, index) => {
-            item.style.transitionDelay =
-                (index / 3.5).toFixed(2) + "s";
-        });
 
         this.fadeBoxes.forEach((box) => {
             const items = box.querySelectorAll(".fade-up-item");
+
             items.forEach((item, index) => {
+                if (item.classList.contains("no-delay")) {
+                    return
+                }
                 item.style.transitionDelay =
                     (index / 3.5).toFixed(2) + "s";
             });
@@ -42,13 +37,6 @@ class FadeUpAnimator {
 
         this.handleElements(
             this.fadeBoxes,
-            scrollTop,
-            triggerPoint,
-            windowHeight,
-            ".landing-fade-up-box",
-        );
-        this.handleElements(
-            this.advantageImages,
             scrollTop,
             triggerPoint,
             windowHeight,

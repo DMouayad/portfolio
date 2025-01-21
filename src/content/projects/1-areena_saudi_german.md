@@ -1,10 +1,12 @@
 ---
-title: Company website
-tags: ["Astro", "UI/UX", "JamStack", "Storyblok", "Cloudflare Pages"]
+title: ASG company portfolio
+shortDesc: A fast and SEO-friendly static website built with Astro. 
+tags: ["Astro", "Storyblok", "Cloudflare Pages", "Turnstile"]
 date: 2024
 links:
-  - label: live website
+  - label: website
     url: https://saudigermany.sa
+    icon: 'carbon:content-delivery-network'
 images:
   - /src/images/asg_project/1.png
   - /src/images/asg_project/2.png

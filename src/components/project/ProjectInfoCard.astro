@@ -1,0 +1,21 @@
+---
+interface Props {
+    title: string;
+    classList?: string;
+    rest?: [];
+}
+const { title, classList = "", ...rest } = Astro.props;
+---
+
+<div
+    class=`rounded-xl border border-black max-xl:w-full px-7 py-9 w-[340px] ${classList}`
+    {...rest}
+>
+    <div
+        class="font-serif text-dark tracking-tight font-bold leading-10 text-3xl text-center"
+    >
+        {title}
+    </div><div class="font-normal leading-7 text-lg mt-3 text-center">
+        <slot />
+    </div>
+</div>

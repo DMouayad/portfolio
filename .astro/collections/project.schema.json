@@ -1,7 +1,7 @@
 {
-  "$ref": "#/definitions/projects",
+  "$ref": "#/definitions/project",
   "definitions": {
-    "projects": {
+    "project": {
       "type": "object",
       "properties": {
         "title": {

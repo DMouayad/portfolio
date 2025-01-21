@@ -12,10 +12,5 @@ export default defineConfig({
   site: 'https://DMouayad.github.io',
   base: BASE_PATH,
   integrations: [tailwind(), icon(), sitemap(), robotsTxt(robotsConfig), compress()],
-  output: "static",
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ar']
-
-  }
+  output: "static"
 });

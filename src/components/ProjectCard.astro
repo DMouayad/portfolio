@@ -1,0 +1,81 @@
+---
+import DivImage from "./DivImage.astro";
+import Badge from "./Badge.astro";
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+import { BASE_PATH } from "@/constants";
+
+interface Props {
+    project: CollectionEntry<"project">;
+}
+const { project } = Astro.props;
+const data = project.data;
+---
+
+<article class="project-card group">
+    <div class="w-full h-[210px] overflow-hidden rounded-md shadow-sm">
+        <DivImage
+            classList="project-img"
+            options={{
+                //@ts-ignore
+                src: data.images.at(0),
+                height: 350,
+                quality: 100,
+                inferSize: true,
+            }}
+        />
+    </div>
+    <div class="project-title">
+        {data.title}
+    </div>
+    <div class="project-desc">
+        <p>{data.shortDesc}</p>
+    </div>
+
+    <div class="flex-1 self-end content-end z-30">
+        {
+            data.links.map((link) => (
+                <a class="me-1 sm:me-0" href={link.url} target="_blank">
+                    <Badge
+                        type="custom"
+                        classList="flex gap-3 sm:gap-2 font-base  group-hover:bg-base-100 group-hover:border-dark group-hover:text-base-content text-white  transition duration-300 hover:-translate-y-1  ease-in delay-50 hover:scale-105"
+                    >
+                        <Icon name={link.icon} />
+                        {link.label}
+                    </Badge>
+                </a>
+            ))
+        }
+    </div>
+    <a
+        href={`${BASE_PATH}/projects/${project.id}/`}
+        target="_blank"
+        class="h-[92%] delay-200 sm:self-start items-end sm:justify-self-center sm:w-full absolute md:opacity-0 md:-translate-x-4 will-change-transform transition group-hover:opacity-100 group-hover:translate-x-0 inline-flex sm:gap-1 sm:shrink-0 duration-150 ease-in"
+    >
+        <div
+            class="btn btn-link decoration-transparent text-lg md:text-sm font-serif font-normal italic px-0"
+        >
+            <span><Icon name="carbon:arrow-right" /></span>Go to Project
+        </div>
+    </a>
+</article>
+
+<style>
+    .project-card {
+        @apply w-[380px] h-[500px]  max-h-[80%] max-w-[85vw];
+        @apply flex flex-col gap-y-4 relative;
+        @apply me-12 p-6;
+        @apply outline-gray-500 outline-dashed outline-[1.5px] rounded-md hover:rounded-xl hover:outline-none  hover:bg-base-100;
+        @apply transition-all duration-500 ease-in-out;
+    }
+    .project-img {
+        @apply w-full h-full bg-no-repeat bg-cover bg-center;
+        @apply group-hover:shadow-md;
+    }
+    .project-title {
+        @apply text-2xl font-semibold text-gray-800 dark:text-white group-hover:text-gray-800  whitespace-nowrap overflow-ellipsis;
+    }
+    .project-desc {
+        @apply text-gray-500 dark:text-gray-200 group-hover:text-gray-500 overflow-ellipsis text-base;
+    }
+</style>

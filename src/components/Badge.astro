@@ -1,0 +1,29 @@
+---
+interface Props {
+    type?: "default" | "secondary" | "custom";
+    classList?: string;
+}
+const { type = "default", classList } = Astro.props;
+---
+
+<div class={`my-badge ${type} ${classList}`}><slot /></div>
+
+<style>
+    .my-badge {
+        @apply inline-flex items-center;
+        @apply rounded-md border;
+        @apply p-4 sm:px-2.5 sm:py-1.5;
+        @apply text-base sm:text-[13px] font-semibold;
+        @apply transition-all duration-100;
+
+        &.secondary {
+            @apply border-transparent bg-secondary  hover:bg-secondary/80;
+        }
+        &.base {
+            @apply bg-base-200 hover:bg-base-300;
+        }
+        &.default {
+            @apply border-transparent bg-primary shadow  hover:bg-primary/80 hover:text-black;
+        }
+    }
+</style>

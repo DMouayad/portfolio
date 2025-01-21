@@ -1,0 +1,112 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import ProjectHeader from "@/components/project/ProjectHeader.astro";
+import ProjectInfoCard from "@/components/project/ProjectInfoCard.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+export async function getStaticPaths() {
+    const projects = await getCollection("project");
+    console.log(projects.length);
+    const projectCount = projects.length;
+    return projects.map((project, index) => ({
+        params: { id: project.id },
+        props: {
+            project,
+            prevProject:
+                index + 1 !== projectCount ? projects[index + 1] : null,
+            nextProject: index !== 0 ? projects[index - 1] : null,
+        },
+    }));
+}
+
+type Props = {
+    project: CollectionEntry<"project">;
+    prevProject: CollectionEntry<"project">;
+    nextProject: CollectionEntry<"project">;
+};
+
+const { project, prevProject, nextProject } = Astro.props;
+const { title, shortDesc, images, tags, links } = project.data;
+const introImage = images.at(0);
+const { Content } = await render(project);
+---
+
+<BaseLayout title={title} description={shortDesc}>
+    <ProjectHeader />
+    <div
+        class="w-screen absolute -z-10 bg-dark bottom-auto h-[676px] left-0% max-lg:h-600 max-md:h-500 max-sm:h-450 right-0 top-0"
+    >
+    </div>
+    <div
+        class="mx-auto max-lg:mx-060 max-md:mx-10 max-sm:mx-5 max-xl:mx-20 max-md:pt-[20px] max-sm:pt-[60px] max-w-6xl pt-[100px] relative"
+    >
+        <div class="fade-up-box">
+            <div id="title-box" class="fade-up-item">
+                <h1
+                    class="text-white font-semibold leading-[76px] max-lg:leading-[68px] max-lg:text-6xl max-md:leading-[60px] max-sm:leading-[52px] max-w-[732px] mx-auto my-0 text-3xl md:text-6xl text-center tracking-tight"
+                >
+                    {title}
+                </h1>
+            </div>
+            <div
+                id="img"
+                class="fade-up-item no-delay w-full h-[600px] md:mt-16 sm:mt-10 mt-4"
+            >
+                <Image
+                    class:list="w-full h-full bg-cover object-cover rounded-xl drop-shadow"
+                    src={introImage}
+                    loading="eager"
+                    alt="d"
+                />
+            </div>
+        </div>
+
+        <div
+            class="fade-up-box flex justify-between max-lg:flex-col max-lg:gap-10 max-sm:gap-5 max-xl:gap-5 mt-8"
+        >
+            <ProjectInfoCard classList="fade-up-item" title="Type"
+                >University Course Project</ProjectInfoCard
+            >
+            <ProjectInfoCard classList="fade-up-item" title="TechStack"
+                >{tags.join(" - ")}</ProjectInfoCard
+            >
+            <ProjectInfoCard classList="fade-up-item" title="Links"
+                >{
+                    links.map((el) => (
+                        <a
+                            class="btn btn-link text-base text-black"
+                            href={el.url}
+                        >
+                            {el.label}
+                        </a>
+                    ))
+                }</ProjectInfoCard
+            >
+        </div>
+
+        <div class="max-w-none prose sm:prose-lg">
+            <Content />
+        </div>
+
+        {
+            (prevProject || nextProject) && (
+                <div class="my-16 sm:my-24 flex">
+                    <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">
+                        View Also
+                    </h2>
+                    {/* {nextProject && <ProjectCard project={nextProject} />} */}
+                    {/* {prevProject && <ProjectCard project={prevProject} />} */}
+                </div>
+            )
+        }
+    </div>
+    <style>
+        #title-box.fade-up-item {
+            transition: 1.2s ease;
+        }
+        #img.fade-up-item {
+            transition: 0.8s ease;
+        }
+    </style>
+</BaseLayout>

@@ -1,39 +1,22 @@
-.fade-up-box .fade-up-item,
-.single-advantage-image {
+.fade-up-box .fade-up-item {
     transition: 0.5s ease-in-out;
     visibility: hidden;
     opacity: 0;
-    transform: translate(0, 30px);
+    transform: translate3d(0, 100px, 0);
+    will-change: auto;
 }
 
-.fade-up-box.show>.fade-up-item,
-.single-advantage-image.show,
-.single-advantage-image.show {
+.fade-up-box.show>.fade-up-item {
     visibility: visible;
     opacity: 1;
     transform: translate(0, 0);
 }
 
-
-.single-advantage-image.show .svg-stroke-progress {
-    animation: line-ani 1s linear forwards 0.33s;
-}
-
-@keyframes line-ani {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-.fade-up-box.no-duration .fade-up-item,
-.single-advantage-image.no-duration .svg-fade,
-.single-advantage-image.no-duration {
+.fade-up-box.no-duration .fade-up-item {
     transition-duration: 0s;
     transition-delay: 0s !important;
 }
 
-.landing-fade-up-box,
-.fade-up-box,
-.single-advantage-image {
+.fade-up-box {
     margin-bottom: 100px;
 }
