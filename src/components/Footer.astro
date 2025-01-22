@@ -4,14 +4,21 @@ const currentYear = new Date().getFullYear();
 
 <div class="flex justify-center text-sm pb-6 absolute left-0 right-0">
     <div>
-        @{currentYear} - Made with
+        Made with
         <a
             target="_blank"
             title="Astro (Astro.js)"
-            class="link font-semibold"
-            href="https://astro.build/"
+            class="link font-semibold text-primary"
+            href="https://astro.build/">Astro</a
         >
-            Astro
+        | @{currentYear} |
+        <a
+            target="_blank"
+            title="My portfolio repository"
+            class="link"
+            href="https://github.com/DMouayad/portfolio"
+        >
+            view source
         </a>
     </div>
 </div>
