@@ -8,7 +8,6 @@ import ProjectLink from "@/components/project/ProjectLink.astro";
 
 export async function getStaticPaths() {
     const projects = await getCollection("project");
-    console.log(projects.length);
     const projectCount = projects.length;
     return projects.map((project, index) => ({
         params: { id: project.id },
