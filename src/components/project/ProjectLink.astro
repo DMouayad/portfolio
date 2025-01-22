@@ -1,0 +1,22 @@
+---
+import { BASE_PATH } from "@/constants";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    project: CollectionEntry<"project">;
+}
+const { project } = Astro.props;
+const data = project.data;
+---
+
+<a
+    class="outline outline-1 p-4 rounded-md hover:shadow-md hover:outline-[2.5px] transition"
+    href={`/${BASE_PATH}/projects/${project.id}/`}
+>
+    <div class="flex flex-col">
+        <div class="text-lg font-semibold">
+            {data.title}
+        </div>
+        <div class="mt-2">{data.shortDesc}</div>
+    </div>
+</a>

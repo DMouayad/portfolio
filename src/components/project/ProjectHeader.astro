@@ -3,9 +3,9 @@ import { BASE_PATH, MY_CONTACTS } from "@/constants";
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="w-full bg-dark z-[999] px-20 fixed py-0">
+<div class="w-full bg-dark z-[999] px-5 md:px-20 fixed py-0">
     <div class="h-20 text-white flex items-center justify-between">
-        <div class="flex gap-x-6 items-center">
+        <div class="flex gap-x-3 md:gap-x-6 items-center">
             <a href=`/${BASE_PATH}#projects` class="group flex items-center">
                 <Icon class="w-5 h-5" name="carbon:arrow-left" />
                 <div
@@ -21,7 +21,7 @@ import { Icon } from "astro-icon/components";
             <a
                 href={MY_CONTACTS.email.url}
                 aria-label={MY_CONTACTS.email.buttonLabel}
-                class="btn btn-outline text-base-200 btn-sm hover:bg-base-100 hover:text-base-content rounded-lg"
+                class="btn btn-outline text-base-200 hover:bg-base-100 hover:text-base-content rounded-lg"
                 ><Icon name="carbon:email" />Get in touch
             </a>
         </div>
