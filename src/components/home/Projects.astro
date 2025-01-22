@@ -6,39 +6,19 @@ const projects = await getCollection("project");
 ---
 
 <section class="projects-section pt-48" id="projects">
-    <div class="flex flex-col md:flex-row items-center mb-11 section-container">
-        <div class="md:w-1/6"></div>
-        <div class="md:w-3/6 text-center md:text-left mb-12 md:mb-0">
+    <div
+        class="flex flex-col md:flex-row justify-around items-center mb-11 section-container"
+    >
+        <div class="md:w-2/6 text-center md:text-left mb-12 md:mb-0">
             <span class="projects-title">Projects</span>
             <h3 class="projects-heading">Practice makes perfect</h3>
-            <p class="projects-text-content">
-                One good work is better than countless bad ones. Not to be an
-                assembly line employee, only to produce best crafted products.
-            </p>
         </div>
-        <div class="md:w-1/2 relative flex justify-center circular-text">
-            <div class="circular-wrapper">
-                <div class="rotate-text">
-                    <svg viewBox="0 0 220 220">
-                        <path
-                            id="curve"
-                            d="M 110 110, m -90, 0 a 90,90 0 1,1 180,0 a 90,90 0 1,1 -180,0"
-                            fill="transparent"></path>
-                        <text>
-                            <textPath
-                                xlink:href="#curve"
-                                style="font-size: 21.5px;"
-                            >
-                                Portfolio — Portfolio — Portfolio — Portfolio —
-                                Portfolio — Portfolio — Portfolio — Portfolio —
-                            </textPath>
-                        </text>
-                    </svg>
-                </div>
-                <div class="counter">
-                    <span class="text-4xl">♾️</span>
-                </div>
-            </div>
+        <div class="md:w-2/6">
+            <p class="projects-text-content">
+                "One good work is better than countless bad ones"
+                <!-- Not to be an
+                assembly line employee, only to produce best crafted products. -->
+            </p>
         </div>
     </div>
 
@@ -117,7 +97,7 @@ const projects = await getCollection("project");
         @apply text-5xl lg:leading-tight lg:text-6xl font-semibold  text-gray-800 dark:text-white mt-3 mb-7 transition-colors;
     }
     .projects-text-content {
-        @apply leading-relaxed md:ml-20 mt-3 dark:text-base-100;
+        @apply leading-relaxed md:ml-20 mt-3 dark:text-base-100 italic;
     }
 
     .circular-text {

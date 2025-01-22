@@ -1,20 +1,46 @@
 ---
-import DivImage from "../DivImage.astro";
 import introImg from "../../images/intro.jpg";
+import { Image } from "astro:assets";
+import HeroAbout from "./HeroAbout.astro";
 ---
 
-<section id="intro" class="text-center" style="scrollbar-color: black black;">
-    <DivImage
-        classList="bg-cover  bg-center h-screen  w-screen flex flex-col items-center  justify-center"
-        options={{ src: introImg }}
-    >
-        <h1
-            class="text-6xl lg:text-8xl font-semibold text-white backdrop-blur-sm md:backdrop-blur-none"
-        >
-            Mouayad AlHamwi
-        </h1>
-        <h2 class="mt-6 text-3xl font-semibold text-base-200 drop-shadow-sm">
-            Software Engineer
-        </h2>
-    </DivImage>
+<section class="overflow-clip">
+    <div class="w-screen h-screen bg-[#010008] absolute">
+        <Image
+            role="presentation"
+            src={introImg}
+            alt="Image of a galaxy with stars and planets orbiting around it."
+            decoding="async"
+            loading="lazy"
+            layout="responsive"
+            class="w-full h-full mx-auto"
+        />
+    </div>
+    <section class="gradient">
+        <HeroAbout />
+    </section>
 </section>
+<style>
+    .gradient {
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(0, 0, 0, 0.1) 30%,
+            rgba(0, 0, 0, 0.8) 70%,
+            rgba(0, 0, 0, 0.99)
+        );
+    }
+    img {
+        transform: translateY(-5vw);
+
+        @media (min-width: 650px) {
+            transform: translateY(-15vw);
+        }
+        @media (min-width: 990px) {
+            transform: translateY(-20vw);
+        }
+        @media (min-width: 1230px) {
+            transform: translateY(-25vw);
+        }
+    }
+</style>

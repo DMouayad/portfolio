@@ -13,7 +13,7 @@ class FadeUpAnimator {
             const items = box.querySelectorAll(".fade-up-item");
 
             items.forEach((item, index) => {
-                if (item.classList.contains("no-delay")) {
+                if (item.classList.contains("fade-up-delay-none")) {
                     return
                 }
                 item.style.transitionDelay =
@@ -52,7 +52,7 @@ class FadeUpAnimator {
     ) {
         elements.forEach((element) => {
             const elementTop = element.offsetTop;
-
+            console.log(element)
             if (
                 !element.classList.contains("show") &&
                 scrollTop + triggerPoint >= elementTop

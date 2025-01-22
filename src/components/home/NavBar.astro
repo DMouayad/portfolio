@@ -2,10 +2,10 @@
 import NavBarItems from "../NavBarItems.astro";
 ---
 
-<div class="h-[90px] lg:py-4 px-8 top-2 left-0 z-[999] fixed w-full">
+<div class="h-[90px] lg:py-4 px-8 top-6 sm:top-3 left-0 z-[999] fixed w-full">
     <div
         id="nav"
-        class="navbar rounded-md bg-base-100 md:bg-transparent shadow md:shadow-none md:backdrop-blur-md"
+        class="navbar w-fit mx-auto rounded-md bg-base-100 md:bg-transparent shadow md:shadow-none md:backdrop-blur-md"
     >
         <div class="navbar-start">
             <div class="dropdown">
@@ -51,15 +51,15 @@ import NavBarItems from "../NavBarItems.astro";
     const navMenu = document.getElementById("nav-menu");
     const navDropdown = document.getElementById("nav-dropdown");
 
-    if (window.screen.width > 640) {
+    if (window.screen.availWidth > 640) {
         window.addEventListener("scroll", function () {
             const scrollY = window.scrollY; // Get current scroll position
-            const condition = scrollY > window.screen.height * 0.8;
+            const condition = scrollY > window.screen.availHeight * 0.8;
             navMenu?.classList.toggle("lg:flex", !condition);
             navDropdown?.classList.toggle("lg:hidden", !condition);
-            nav?.classList.toggle("w-fit", condition);
+            nav?.classList.toggle("mx-auto", !condition);
         });
     } else {
-        nav?.classList.add("w-fit");
+        nav?.classList.remove("mx-auto");
     }
 </script>

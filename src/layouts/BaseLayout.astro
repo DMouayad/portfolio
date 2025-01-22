@@ -16,32 +16,7 @@ const { title, description } = Astro.props;
         <main class="w-screen">
             <slot />
         </main>
-        <script src="src/assets/imagesLazyLoader.js"></script>
-        <script async src="src/assets/fadeUp.js"></script>
+        <script src="src/assets/imagesLazyLoader"></script>
+        <script src="src/assets/fadeUp"></script>
     </body><footer><Footer /></footer>
 </html>
-
-<style is:global>
-    body {
-        font-family: "Raleway Variable", sans-serif;
-    }
-
-    @media (min-width: 768px) {
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    }
-
-    @media only screen and (max-width: 480px) {
-        * {
-            font-size: 13px;
-        }
-    }
-    * {
-        scrollbar-color: oklch(var(--bc)) oklch(var(--b1)) !important;
-    }
-    section {
-        height: 100vh;
-    }
-</style>

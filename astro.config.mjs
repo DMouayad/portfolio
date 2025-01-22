@@ -12,5 +12,8 @@ export default defineConfig({
   site: 'https://DMouayad.github.io',
   base: BASE_PATH,
   integrations: [tailwind(), icon(), sitemap(), robotsTxt(robotsConfig), compress()],
-  output: "static"
+  output: "static",
+  experimental: {
+    responsiveImages: true
+  }
 });

@@ -1,10 +1,8 @@
 ---
-import AboutMe from "@/components/home/AboutMe.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ContactMe from "@/components/home/ContactMe.astro";
 import Experience from "@/components/home/Experience.astro";
 import Hero from "@/components/home/Hero.astro";
-import NavBar from "@/components/home/NavBar.astro";
 import Projects from "@/components/home/Projects.astro";
 import TechStack from "@/components/home/TechStack.astro";
 ---
@@ -13,11 +11,9 @@ import TechStack from "@/components/home/TechStack.astro";
     title="Portfolio"
     description="Welcome to my corner of web. My name is Mouayad Alhamwi, I'm a Muslim Software Engineer focused on Backend Development and I do some front-end dev on the side with Astro & TailwindCSS"
 >
-    <NavBar />
     <Hero />
-    <TechStack />
-    <AboutMe />
     <Experience />
+    <TechStack />
     <Projects />
     <ContactMe />
 </BaseLayout>
