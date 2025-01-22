@@ -5,9 +5,10 @@ const techStack = [
     "JavaScript",
     "Node.js",
     "Express.js",
-    "tailwind",
+    "Tailwind",
     "SQL",
     "Typescript",
+    "GitHub Projects",
 ];
 function shuffleArraySort(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -65,7 +66,7 @@ function shuffleArraySort(array) {
 
 <style>
     section {
-        height: 500px;
+        @apply h-[500px] max-h-[53vh] md:max-h-[70vh];
     }
     .text-running-way-sec {
         @apply flex flex-col items-center justify-center;
@@ -91,10 +92,10 @@ function shuffleArraySort(array) {
         .text-running-way
         .single-services-list
         .service-name {
-        @apply inline-block h-[70px] text-6xl leading-[70px] font-semibold overflow-hidden text-black;
+        @apply inline-block h-[70px] text-4xl lg:text-6xl leading-[70px] font-semibold overflow-hidden text-black;
     }
     .text-running-way-sec .text-running-way .single-services-list .break {
-        @apply inline-block w-[100px] h-[70px] relative;
+        @apply inline-block w-[100px] max-w-[10vw] h-[70px] relative;
     }
     .text-running-way-sec
         .text-running-way

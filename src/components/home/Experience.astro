@@ -1,7 +1,11 @@
 <section id="experience-section" class="main-section">
-    <div class="intro fade-up-box">
-        <div class="fade-up-item text-2xl font-serif">Experiences</div>
-        <div class="text-6xl font-semibold mt-5 fade-up-item">
+    <div
+        class="fade-up-box section-container flex flex-col justify-center items-center mt-20"
+    >
+        <div class="fade-up-item text-xl md:text-2xl">Experiences</div>
+        <div
+            class="text-5xl sm:text-6xl text-center font-semibold mt-5 fade-up-item"
+        >
             Experience is a Great Teacher
         </div>
     </div>
@@ -43,12 +47,8 @@
     .main-section {
         height: fit-content;
     }
-    .intro {
-        @apply flex flex-col justify-center items-center;
-        @apply mt-20;
-    }
     .part-wrapper {
-        @apply max-w-2xl;
+        @apply max-w-md md:max-w-2xl;
     }
     .part {
         padding: 10px;
@@ -66,6 +66,6 @@
     }
 
     .title {
-        @apply text-6xl mb-7 mt-6;
+        @apply text-6xl my-16 md:my-7;
     }
 </style>

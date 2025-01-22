@@ -5,7 +5,7 @@ import NavBarItems from "../NavBarItems.astro";
 <div class="h-[90px] pt-10 lg:py-4 px-8 top-0 left-0 z-[999] fixed w-full">
     <div
         id="nav"
-        class="navbar rounded-md bg-base-100 md:bg-transparent shadow-md md:shadow-none md:backdrop-blur-md transition-all duration-400"
+        class="navbar rounded-md bg-base-100 md:bg-transparent shadow md:shadow-none md:backdrop-blur-md"
     >
         <div class="navbar-start">
             <div class="dropdown">
@@ -51,17 +51,14 @@ import NavBarItems from "../NavBarItems.astro";
     const navMenu = document.getElementById("nav-menu");
     const navDropdown = document.getElementById("nav-dropdown");
 
-    window.addEventListener("scroll", function () {
-        const scrollY = window.scrollY; // Get current scroll position
-
-        if (scrollY > 0) {
-            navMenu?.classList.remove("lg:flex");
-            navDropdown?.classList.remove("lg:hidden");
-            nav.style.width = "70px";
-        } else {
-            navMenu?.classList.add("lg:flex");
-            navDropdown?.classList.add("lg:hidden");
-            nav.style.width = "100%";
-        }
-    });
+    nav?.classList.add("w-fit");
+    if (window.screen.width > 640) {
+        window.addEventListener("scroll", function () {
+            const scrollY = window.scrollY; // Get current scroll position
+            const condition = scrollY > window.screen.height * 0.8;
+            navMenu?.classList.toggle("lg:flex", !condition);
+            navDropdown?.classList.toggle("lg:hidden", !condition);
+            nav?.classList.toggle("w-fit", condition);
+        });
+    }
 </script>

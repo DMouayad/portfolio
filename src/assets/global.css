@@ -20,3 +20,7 @@
 .fade-up-box {
     margin-bottom: 100px;
 }
+
+.section-container {
+    @apply max-w-sm mx-auto md:max-w-screen-xl;
+}

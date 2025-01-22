@@ -6,11 +6,11 @@ const projects = await getCollection("project");
 ---
 
 <section class="projects-section pt-48" id="projects">
-    <div class="flex flex-col md:flex-row items-center">
+    <div class="flex flex-col md:flex-row items-center mb-11 section-container">
         <div class="md:w-1/6"></div>
-        <div class="md:w-1/2 text-center md:text-left mb-12 md:mb-0">
+        <div class="md:w-3/6 text-center md:text-left mb-12 md:mb-0">
             <span class="projects-title">Projects</span>
-            <h3 class="projects-heading">Practice makes perfect.</h3>
+            <h3 class="projects-heading">Practice makes perfect</h3>
             <p class="projects-text-content">
                 One good work is better than countless bad ones. Not to be an
                 assembly line employee, only to produce best crafted products.
@@ -48,7 +48,7 @@ const projects = await getCollection("project");
                 <section role="feed" class="cards">
                     {
                         projects.map((project) => (
-                            <ProjectCard project={project} />
+                            <ProjectCard class:list="" project={project} />
                         ))
                     }
                 </section>
@@ -63,12 +63,6 @@ const projects = await getCollection("project");
         display: none;
     }
 
-    .container {
-        position: relative;
-        width: 100%;
-        min-height: 100vh;
-    }
-
     .space-holder {
         position: relative;
         width: 100%;
@@ -77,27 +71,27 @@ const projects = await getCollection("project");
     .sticky {
         position: sticky;
         top: 0;
-        height: 100vh;
+        height: fit-content;
         width: 100%;
-        overflow-x: hidden;
+        overflow: hidden;
     }
 
     .horizontal {
-        position: absolute;
         height: 100%;
-        will-change: transform;
+        height: fit-content;
+
+        position: relative;
     }
 
     .cards {
         position: relative;
-        height: 100%;
-        padding: 0px 0 0 150px;
-        display: flex;
-        width: 100%;
+        width: max-content;
         flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: center;
         background-color: transparent;
+        @apply h-fit md:h-screen;
+        @apply py-5;
+        @apply sm:pe-48 px-10 sm:ps-40;
+        @apply grid grid-cols-2 lg:grid-cols-3 grid-rows-2  justify-center items-center grid-flow-row gap-4;
     }
 
     .scrollbar-hide {
@@ -108,8 +102,8 @@ const projects = await getCollection("project");
     .projects-section {
         transition: all 0.3s ease;
         position: relative;
-        height: max-content;
-        @apply pt-48 dark:text-white relative;
+        height: fit-content;
+        @apply pt-28 dark:text-white relative;
         &.dark {
             @apply bg-dark;
         }
@@ -117,13 +111,13 @@ const projects = await getCollection("project");
     .projects-title {
         transition: color 0.3s ease;
         @apply font-serif;
-        @apply text-gray-500 dark:text-gray-400 text-lg;
+        @apply text-gray-500 dark:text-gray-400 text-lg font-normal;
     }
     .projects-heading {
-        @apply text-4xl md:text-5xl lg:text-6xl font-semibold  text-gray-800 dark:text-white my-4 transition-colors;
+        @apply text-5xl lg:leading-tight lg:text-6xl font-semibold  text-gray-800 dark:text-white mt-3 mb-7 transition-colors;
     }
     .projects-text-content {
-        @apply leading-relaxed md:ml-24 dark:text-base-100;
+        @apply leading-relaxed md:ml-20 mt-3 dark:text-base-100;
     }
 
     .circular-text {
@@ -131,7 +125,7 @@ const projects = await getCollection("project");
     }
 
     .circular-wrapper {
-        @apply relative w-[300px] h-[300px] max-w-[70vw] max-h-[70vw] overflow-hidden;
+        @apply relative w-[300px] h-[300px] max-w-[30vw] max-h-[30vw] overflow-hidden;
         &:hover {
             .rotate-text {
                 animation: rotate-text 1s linear infinite;

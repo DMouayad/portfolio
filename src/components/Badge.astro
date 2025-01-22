@@ -12,7 +12,7 @@ const { type = "default", classList } = Astro.props;
     .my-badge {
         @apply inline-flex items-center;
         @apply rounded-md border;
-        @apply p-4 sm:px-2.5 sm:py-1.5;
+        @apply p-2.5 sm:px-2.5 sm:py-1.5;
         @apply text-base sm:text-[13px] font-semibold;
         @apply transition-all duration-100;
 
@@ -23,7 +23,7 @@ const { type = "default", classList } = Astro.props;
             @apply bg-base-200 hover:bg-base-300;
         }
         &.default {
-            @apply border-transparent bg-primary shadow  hover:bg-primary/80 hover:text-black;
+            @apply border-transparent bg-primary shadow text-white;
         }
     }
 </style>

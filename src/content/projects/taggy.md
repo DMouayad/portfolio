@@ -1,5 +1,5 @@
 ---
-title: Dart & Flutter Packages
+title: Taggy package
 shortDesc: Cross-platform packages to read, write and convert audio tags.
 tags: ["Dart", "Flutter", "CI/CD", "Rust"]
 date: 2023

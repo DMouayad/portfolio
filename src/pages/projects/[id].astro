@@ -41,7 +41,7 @@ const { Content } = await render(project);
     <div
         class="mx-auto max-lg:mx-060 max-md:mx-10 max-sm:mx-5 max-xl:mx-20 max-md:pt-[20px] max-sm:pt-[60px] max-w-6xl pt-[100px] relative"
     >
-        <div class="fade-up-box">
+        <div class="fade-up-box !mb-20">
             <div id="title-box" class="fade-up-item">
                 <h1
                     class="text-white font-semibold leading-[76px] max-lg:leading-[68px] max-lg:text-6xl max-md:leading-[60px] max-sm:leading-[52px] max-w-[732px] mx-auto my-0 text-3xl md:text-6xl text-center tracking-tight"
@@ -61,52 +61,66 @@ const { Content } = await render(project);
                 />
             </div>
         </div>
+        <div class="fade-up-box">
+            <div
+                id="info-cards"
+                class="fade-up-item flex justify-between max-lg:flex-col max-lg:gap-10 max-sm:gap-5 max-xl:gap-5 mb-20"
+            >
+                <ProjectInfoCard title="Type"
+                    >University Course Project</ProjectInfoCard
+                >
+                <ProjectInfoCard title="TechStack"
+                    >{tags.join(" - ")}</ProjectInfoCard
+                >
+                <ProjectInfoCard title="Links"
+                    >{
+                        links.map((el) => (
+                            <a
+                                class="btn btn-link text-base text-black"
+                                href={el.url}
+                            >
+                                {el.label}
+                            </a>
+                        ))
+                    }</ProjectInfoCard
+                >
+            </div>
 
-        <div
-            class="fade-up-box flex justify-between max-lg:flex-col max-lg:gap-10 max-sm:gap-5 max-xl:gap-5 mt-8"
-        >
-            <ProjectInfoCard classList="fade-up-item" title="Type"
-                >University Course Project</ProjectInfoCard
-            >
-            <ProjectInfoCard classList="fade-up-item" title="TechStack"
-                >{tags.join(" - ")}</ProjectInfoCard
-            >
-            <ProjectInfoCard classList="fade-up-item" title="Links"
-                >{
-                    links.map((el) => (
-                        <a
-                            class="btn btn-link text-base text-black"
-                            href={el.url}
-                        >
-                            {el.label}
-                        </a>
-                    ))
-                }</ProjectInfoCard
-            >
+            <div class="fade-up-item max-w-none prose sm:prose-lg">
+                <Content />
+            </div>
+
+            {
+                (prevProject || nextProject) && (
+                    <div class="fade-up-item py-16  flex flex-col">
+                        <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">
+                            View Also
+                        </h2>
+                        <div class="flex">
+                            {nextProject && (
+                                <div class="flex flex-col">
+                                    <div class="text-3xl">
+                                        {nextProject.data.title}
+                                    </div>
+                                </div>
+                            )}
+                            {/* {prevProject && <ProjectCard project={prevProject} />} */}
+                        </div>
+                    </div>
+                )
+            }
         </div>
-
-        <div class="max-w-none prose sm:prose-lg">
-            <Content />
-        </div>
-
-        {
-            (prevProject || nextProject) && (
-                <div class="my-16 sm:my-24 flex">
-                    <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">
-                        View Also
-                    </h2>
-                    {/* {nextProject && <ProjectCard project={nextProject} />} */}
-                    {/* {prevProject && <ProjectCard project={prevProject} />} */}
-                </div>
-            )
-        }
     </div>
+
     <style>
         #title-box.fade-up-item {
             transition: 1.2s ease;
         }
         #img.fade-up-item {
             transition: 0.8s ease;
+        }
+        #info-cards.fade-up-item {
+            transition: 1s ease;
         }
     </style>
 </BaseLayout>

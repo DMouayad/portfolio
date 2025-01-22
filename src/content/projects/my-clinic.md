@@ -1,7 +1,7 @@
 ---
-title: Restful API with Laravel
+title: MyClinic
 shortDesc: da
-tags: [ "Laravel", "MySQL", "Restful API Design", "Unit-Testing"]
+tags: [ "Laravel", "MySQL", "Flutter"]
 date: 2022-2023
 links:
   - label: source

@@ -4,14 +4,14 @@ import Image from "astro/components/Image.astro";
 import avatar from "/src/images/avatar.png";
 ---
 
-<section id="about-section">
+<section id="about-section" class="section-container">
     <div class="content">
         <div class="avatar w-28">
             <div class="w-28 rounded-full">
                 <Image alt="Tailwind CSS Navbar component" src={avatar} />
             </div>
         </div>
-        <div class="mx-11 ps-12">
+        <div class="md:mx-11 md:ps-12">
             <div class="text-2xl font-serif text-[var(--text-grey)]">
                 About Me
             </div>
@@ -45,17 +45,17 @@ import avatar from "/src/images/avatar.png";
     }
     .content {
         @apply max-w-screen-md mx-auto;
-        @apply flex flex-row items-stretch  justify-center;
+        @apply flex flex-col md:flex-row items-center  md:items-stretch  justify-center;
     }
     .content::after {
         content: "";
         width: 2px;
-        height: 19vh;
         background-color: #898989;
         border-radius: 1px;
         position: absolute;
         left: 50%;
         bottom: 0;
         transform: translateX(-50%);
+        @apply h-[10vh] md:h-[18vh];
     }
 </style>
