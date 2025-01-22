@@ -1,12 +1,14 @@
 ---
 import { BASE_PATH } from "@/constants";
+import { siteData } from "@/data/siteData";
 
 interface Props {
     title: string;
     description: string;
 }
 let { title, description } = Astro.props;
-title += " | Mouayad Alhamwi";
+title += " | " + siteData.seo.myName;
+
 function getPublicAssetUrl(assetPath: string): string {
     const url = new URL(BASE_PATH + assetPath, Astro.url.origin);
     return url.toString();

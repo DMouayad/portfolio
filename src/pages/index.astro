@@ -5,11 +5,12 @@ import Experience from "@/components/home/Experience.astro";
 import Hero from "@/components/home/Hero.astro";
 import Projects from "@/components/home/Projects.astro";
 import TechStack from "@/components/home/TechStack.astro";
+import { siteData } from "@/data/siteData";
 ---
 
 <BaseLayout
-    title="Portfolio"
-    description="Welcome to my corner of web. My name is Mouayad Alhamwi, I'm a Muslim Software Engineer focused on Backend Development and I do some front-end dev on the side with Astro & TailwindCSS"
+    title={siteData.seo.homeTitle}
+    description={siteData.seo.description}
 >
     <Hero />
     <Experience />
