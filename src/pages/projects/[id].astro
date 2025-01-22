@@ -62,7 +62,7 @@ const { Content } = await render(project);
                 />
             </div>
         </div>
-        <div class="fade-up-box">
+        <div class="fade-up-box !mb-20">
             <div
                 id="info-cards"
                 class="fade-up-item flex justify-between max-lg:flex-col max-lg:gap-10 max-sm:gap-5 max-xl:gap-5 mb-20"
@@ -87,24 +87,24 @@ const { Content } = await render(project);
                 >
             </div>
 
-            <div class="fade-up-item max-w-none prose sm:prose-lg">
+            <div
+                class="fade-up-item max-w-none prose sm:prose-lg md:max-w-screen-lg md:mx-auto"
+            >
                 <Content />
             </div>
 
+            <div
+                class="fade-up-item w-full mt-16 mb-10 h-1 border-y border-dark"
+            >
+            </div>
             {
                 (prevProject || nextProject) && (
-                    <div class="fade-up-item py-16 flex flex-col">
-                        <h2 class=" mb-6 text-xl font-serif italic sm:mb-16 sm:text-2xl">
+                    <div class="fade-up-item flex flex-col md:flex-row items-center gap-x-5">
+                        <h2 class=" text-xl font-serif italic sm:text-2xl">
                             View Also
                         </h2>
-                        <div class="flex justify-around">
-                            {nextProject && (
-                                <ProjectLink project={nextProject} />
-                            )}
-                            {prevProject && (
-                                <ProjectLink project={prevProject} />
-                            )}
-                        </div>
+                        {nextProject && <ProjectLink project={nextProject} />}
+                        {prevProject && <ProjectLink project={prevProject} />}
                     </div>
                 )
             }

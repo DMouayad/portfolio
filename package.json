@@ -12,13 +12,14 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
+    "@fontsource-variable/fraunces": "^5.1.1",
     "@fontsource-variable/raleway": "^5.1.1",
     "@fontsource/almarai": "^5.1.1",
+    "@iconify-json/carbon": "^1.2.5",
+    "@iconify-json/mdi": "^1.2.2",
     "astro": "^5.1.5",
     "astro-compress": "^2.3.6",
     "astro-icon": "^1.1.5",
-    "@iconify-json/carbon": "^1.2.5",
-    "@iconify-json/mdi": "^1.2.2",
     "sharp": "^0.33.5",
     "tailwindcss": "^3.4.17"
   },

@@ -1,31 +1,31 @@
 ---
-import "@fontsource/almarai";
 import Image from "astro/components/Image.astro";
 import avatar from "/src/images/avatar.png";
 ---
 
 <section id="about-section" class="section-container">
-    <div class="content">
+    <div
+        class="content flex flex-col md:flex-row items-center md:items-stretch justify-center"
+    >
         <div class="avatar w-28">
             <div class="w-28 rounded-full">
                 <Image alt="Tailwind CSS Navbar component" src={avatar} />
             </div>
         </div>
         <div class="md:mx-11 md:ps-12">
-            <div class="text-2xl font-serif text-[var(--text-grey)]">
-                About Me
-            </div>
             <div
-                class="text-4xl mt-6 mb-9 font-semibold"
+                class="text-4xl mt-6 mb-9 font-bold"
                 style="direction: rtl;font-family: Almarai"
             >
                 مؤَيّد الحموي مَمشوق
             </div>
             <br />
             <div class="font-normal text-base">
-                Hi!
-                <br />
-                My name is Mouayad Alhamwi,
+                <div class="text-2xl font-serif text-[var(--text-grey)] mb-3">
+                    About Me
+                </div>
+
+                Hi! My name is Mouayad Alhamwi,
                 <br />
                 <ul>
                     <li>
@@ -45,7 +45,7 @@ import avatar from "/src/images/avatar.png";
     }
     .content {
         @apply max-w-screen-md mx-auto;
-        @apply flex flex-col md:flex-row items-center  md:items-stretch  justify-center;
+        /* @apply ; */
     }
     .content::after {
         content: "";

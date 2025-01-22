@@ -13,32 +13,32 @@ const data = project.data;
 ---
 
 <article class="project-card group">
-    <div class="w-full h-[210px] overflow-hidden rounded-md shadow-sm">
-        <DivImage
-            classList="project-img"
-            options={{
-                //@ts-ignore
-                src: data.images.at(0),
-                height: 250,
-                quality: 100,
-                inferSize: true,
-            }}
-        />
-    </div>
-    <div class="project-title gap-y-2">
-        {data.title}
-    </div>
-    <div class="project-desc">
-        <p>{data.shortDesc}</p>
+    <DivImage
+        classList="project-img"
+        options={{
+            //@ts-ignore
+            src: data.images.at(0),
+            height: 250,
+            quality: 100,
+            inferSize: true,
+        }}
+    />
+    <div>
+        <div class="project-title">
+            {data.title}
+        </div>
+        <div class="project-desc">
+            <p>{data.shortDesc}</p>
+        </div>
     </div>
 
-    <div class="flex-1 self-end content-end z-30">
+    <div class="self-end content-end z-30">
         {
             data.links.map((link) => (
                 <a class="me-1 sm:me-0 " href={link.url} target="_blank">
                     <Badge
                         type="custom"
-                        classList="tracking-wide sm:text-base-200 lg:text-dark  flex lg:border-transparent gap-3 sm:gap-2 font-base  transition duration-300 hover:-translate-y-1  ease-in delay-50 hover:scale-105 hover:shadow-md"
+                        classList="tracking-wide sm:text-base-200 lg:text-dark  flex border-dark  gap-3 sm:gap-2 font-base  transition duration-300 hover:-translate-y-1  ease-in delay-50 hover:scale-105 hover:shadow-md"
                     >
                         <Icon name={link.icon} />
                         {link.label}
@@ -48,9 +48,9 @@ const data = project.data;
         }
     </div>
     <a
-        href={`${BASE_PATH}/projects/${project.id}/`}
+        href={`/${BASE_PATH}/projects/${project.id}/`}
         target="_blank"
-        class="h-[88%] delay-200 sm:self-start items-end sm:justify-self-center sm:w-full absolute md:opacity-0 md:-translate-x-4 will-change-transform transition group-hover:opacity-100 group-hover:translate-x-0 inline-flex sm:gap-1 sm:shrink-0 duration-150 ease-in"
+        class="h-[100%] delay-200 sm:self-start items-end sm:justify-self-center sm:w-full absolute md:opacity-0 md:-translate-x-4 will-change-transform transition group-hover:opacity-100 group-hover:translate-x-3 inline-flex bottom-2 sm:gap-1 sm:shrink-0 duration-150 ease-in"
     >
         <div
             class="btn btn-link md:decoration-transparent hover:decoration-current text-lg md:text-sm font-serif font-normal italic px-0"
@@ -62,15 +62,18 @@ const data = project.data;
 
 <style>
     .project-card {
-        @apply w-[380px] h-[320px]  max-w-[80vw];
-        @apply flex flex-col gap-y-4 relative;
-        @apply p-5;
+        @apply w-[380px] h-[330px]  max-w-[80vw];
+        @apply flex flex-col relative justify-between;
         @apply outline-base-300 outline-dotted outline-1 lg:outline-none rounded-md hover:-translate-y-2  hover:bg-base-100;
         @apply transition-all duration-500 ease-in-out;
+        @apply will-change-transform;
+        @apply pb-3;
+        > div {
+            @apply px-5;
+        }
     }
     .project-img {
-        @apply w-full h-full bg-no-repeat bg-cover bg-center;
-        @apply group-hover:shadow-md;
+        @apply w-full h-[150px] bg-no-repeat bg-cover bg-center rounded-md;
     }
     .project-title {
         @apply text-xl font-semibold text-gray-800 dark:text-white group-hover:text-gray-800  whitespace-nowrap overflow-ellipsis;

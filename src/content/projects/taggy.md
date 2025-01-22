@@ -13,5 +13,6 @@ links:
 images:
     - /src/images/taggy/cover.png
 ---
- It's cross-platform with great performance thanks to the Rust Flutter Bridge.
+
+It's cross-platform with great performance thanks to the Rust Flutter Bridge.
 I used <a href="https://github.com/invertase/melos" target="_blank">melos</a> to manage both a speared Dart and Flutter packages in the same repo and GitHub Actions for CI\CD.

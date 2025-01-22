@@ -1,7 +1,7 @@
 ---
-import "@fontsource-variable/raleway";
 import "@assets/global.css";
 import BaseHead from "@/components/BaseHead.astro";
+import Footer from "@/components/Footer.astro";
 
 interface Props {
     title: string;
@@ -18,7 +18,7 @@ const { title, description } = Astro.props;
         </main>
         <script src="/src/assets/imagesLazyLoader.js"></script>
         <script async src="/src/assets/fadeUp.js"></script>
-    </body>
+    </body><footer><Footer /></footer>
 </html>
 
 <style is:global>

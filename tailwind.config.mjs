@@ -18,7 +18,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				'sans': ["Ralway Variable"],
+				'sans': ["Raleway Variable"],
+				"serif": ["Fraunces Variable"]
 			},
 
 			colors: {
