@@ -51,7 +51,6 @@ import NavBarItems from "../NavBarItems.astro";
     const navMenu = document.getElementById("nav-menu");
     const navDropdown = document.getElementById("nav-dropdown");
 
-    nav?.classList.add("w-fit");
     if (window.screen.width > 640) {
         window.addEventListener("scroll", function () {
             const scrollY = window.scrollY; // Get current scroll position
@@ -60,5 +59,7 @@ import NavBarItems from "../NavBarItems.astro";
             navDropdown?.classList.toggle("lg:hidden", !condition);
             nav?.classList.toggle("w-fit", condition);
         });
+    } else {
+        nav?.classList.add("w-fit");
     }
 </script>

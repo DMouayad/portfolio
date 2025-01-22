@@ -4,9 +4,8 @@ import { getCollection, render, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import ProjectHeader from "@/components/project/ProjectHeader.astro";
 import ProjectInfoCard from "@/components/project/ProjectInfoCard.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
 import ProjectLink from "@/components/project/ProjectLink.astro";
-import { Icon } from "astro-icon/components";
+
 export async function getStaticPaths() {
     const projects = await getCollection("project");
     console.log(projects.length);
