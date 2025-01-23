@@ -56,7 +56,8 @@ const { Content } = await render(project);
                 <Image
                     class:list="w-full h-full bg-cover object-cover rounded-xl drop-shadow"
                     src={introImage}
-                    loading="eager"
+                    loading="lazy"
+                    decoding="async"
                     alt="d"
                 />
             </div>

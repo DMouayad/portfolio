@@ -1,5 +1,6 @@
 ---
-import { BASE_PATH, MY_CONTACTS } from "@/constants";
+import { BASE_PATH } from "@/constants";
+import { siteData } from "@/data/siteData";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -19,8 +20,8 @@ import { Icon } from "astro-icon/components";
         </div>
         <div class="flex items-center gap-4 justify-center">
             <a
-                href={MY_CONTACTS.email.url}
-                aria-label={MY_CONTACTS.email.buttonLabel}
+                href={siteData.contactInfo.email.url}
+                aria-label={siteData.contactInfo.email.buttonLabel}
                 class="btn btn-outline text-base-200 hover:bg-base-100 hover:text-base-content rounded-lg"
                 ><Icon name="carbon:email" />Get in touch
             </a>
