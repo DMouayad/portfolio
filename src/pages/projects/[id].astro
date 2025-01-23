@@ -8,7 +8,6 @@ import ProjectLink from "@/components/project/ProjectLink.astro";
 
 export async function getStaticPaths() {
     const projects = await getCollection("project");
-    console.log(projects.length);
     const projectCount = projects.length;
     return projects.map((project, index) => ({
         params: { id: project.id },
@@ -57,7 +56,8 @@ const { Content } = await render(project);
                 <Image
                     class:list="w-full h-full bg-cover object-cover rounded-xl drop-shadow"
                     src={introImage}
-                    loading="eager"
+                    loading="lazy"
+                    decoding="async"
                     alt="d"
                 />
             </div>

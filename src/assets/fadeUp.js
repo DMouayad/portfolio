@@ -52,7 +52,6 @@ class FadeUpAnimator {
     ) {
         elements.forEach((element) => {
             const elementTop = element.offsetTop;
-            console.log(element)
             if (
                 !element.classList.contains("show") &&
                 scrollTop + triggerPoint >= elementTop

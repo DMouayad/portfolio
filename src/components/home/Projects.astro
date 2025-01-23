@@ -16,8 +16,6 @@ const projects = await getCollection("project");
         <div class="md:w-2/6">
             <p class="projects-text-content">
                 "One good work is better than countless bad ones"
-                <!-- Not to be an
-                assembly line employee, only to produce best crafted products. -->
             </p>
         </div>
     </div>
@@ -94,44 +92,9 @@ const projects = await getCollection("project");
         @apply text-gray-500 dark:text-gray-400 text-lg font-normal;
     }
     .projects-heading {
-        @apply text-5xl lg:leading-tight lg:text-6xl font-semibold  text-gray-800 dark:text-white mt-3 mb-7 transition-colors;
+        @apply text-5xl lg:text-6xl font-semibold  text-gray-800 dark:text-white mt-3 mb-7 transition-colors;
     }
     .projects-text-content {
         @apply leading-relaxed md:ml-20 mt-3 dark:text-base-100 italic;
-    }
-
-    .circular-text {
-        @apply flex justify-center items-center;
-    }
-
-    .circular-wrapper {
-        @apply relative w-[300px] h-[300px] max-w-[30vw] max-h-[30vw] overflow-hidden;
-        &:hover {
-            .rotate-text {
-                animation: rotate-text 1s linear infinite;
-            }
-        }
-    }
-
-    .rotate-text {
-        will-change: auto;
-        @apply w-full h-full; /* animate-spin is from Tailwind */
-        animation: rotate-text 10s linear infinite; /* Keep the keyframes */
-    }
-
-    .counter {
-        @apply w-1/2 h-1/2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-center text-center;
-    }
-
-    textPath {
-        @apply transition-all duration-300 fill-black dark:fill-white;
-    }
-    @keyframes rotate-text {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
     }
 </style>
