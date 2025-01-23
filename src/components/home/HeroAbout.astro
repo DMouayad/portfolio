@@ -4,10 +4,14 @@ import avatar from "../../images/avatar.png";
 import { siteData } from "@/data/siteData";
 ---
 
-<div class="h-screen relative flex flex-col justify-center max-w-6xl mx-auto">
-    <div class="flex flex-col flex-wrap h-40 max-w-md gap-x-6">
+<div
+    class="h-screen relative flex flex-col items-center sm:items-start justify-center max-w-lg sm:max-w-[80vw] xl:max-w-6xl mx-auto"
+>
+    <div
+        class="flex sm:flex-col flex-wrap h-40 max-w-xs justify-center md:max-w-sm gap-x-6"
+    >
         <DivImage
-            classList="h-32 w-32 bg-cover rounded-lg bg-blend-multiply"
+            classList="h-32 w-32 bg-cover rounded-2xl bg-blend-multiply "
             options={{ src: avatar }}
         />
         <div class="name" style="font-family: Almarai">
