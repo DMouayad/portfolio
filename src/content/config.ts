@@ -1,5 +1,6 @@
 import { glob } from 'astro/loaders';
 import { z, defineCollection } from 'astro:content';
+
 const ProjectZod = z.object({
     title: z.string(),
     tags: z.array(z.string()),
@@ -19,9 +20,24 @@ const ProjectZod = z.object({
         format: z.string()
     }))
 })
+const ExperienceZod = z.object({
+    title: z.string(),
+    upperTitle: z.string(),
+    cssClasses: z.string(),
+    link: z.object({
+        url: z.string(),
+        text: z.string(),
+        ariaLabel: z.string(),
+        css: z.string().optional()
+    }).optional()
+})
 const project = defineCollection({
     schema: ({ image }) => ProjectZod.merge(z.object({ images: z.array(image()) })),
     loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
 })
+const experience = defineCollection({
+    schema: ExperienceZod,
+    loader: glob({ pattern: "**/*.md", base: "./src/content/experiences" }),
+})
 
-export const collections = { project };
+export const collections = { project, experience };

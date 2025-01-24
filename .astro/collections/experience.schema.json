@@ -1,0 +1,52 @@
+{
+  "$ref": "#/definitions/experience",
+  "definitions": {
+    "experience": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "upperTitle": {
+          "type": "string"
+        },
+        "cssClasses": {
+          "type": "string"
+        },
+        "link": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "ariaLabel": {
+              "type": "string"
+            },
+            "css": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "text",
+            "ariaLabel"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "upperTitle",
+        "cssClasses"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

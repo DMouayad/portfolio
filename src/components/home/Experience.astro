@@ -1,7 +1,13 @@
-<div class="h-52"></div>
+---
+import { getCollection } from "astro:content";
+
+const experiences = await getCollection("experience");
+---
+
+<div class="h-32"></div>
 <section id="experience-section" class="main-section">
     <div
-        class="fade-up-box section-container flex flex-col justify-center items-center"
+        class="fade-up-box section-container flex flex-col justify-center items-center flex-nowrap"
     >
         <div class="fade-up-item text-xl md:text-2xl">Experiences</div>
         <div
@@ -10,38 +16,32 @@
             Experience is a Great Teacher
         </div>
     </div>
-    <div class="part bg-sky-50">
-        <div class="part-wrapper">
-            <div class="text-primary flex justify-between items-center">
-                <span class="drop-shadow-sm">August 2024 - Remotely</span>
-                <a
-                    class="btn btn-link hover:btn-outline"
-                    target="_blank"
-                    href="https:saudigermany.sa">Check it out</a
-                >
+    {
+        experiences.map((e) => (
+            <div class=`part ${e.data.cssClasses}`>
+                <div class="part-wrapper drop-shadow-sm">
+                    <div class="flex justify-between items-center">
+                        <span>{e.data.upperTitle}</span>
+                        {e.data.link && 
+                        <a
+                        class="btn btn-link font-serif text-base hover:btn-outline"
+                        class:list={e.data.link.css}
+                        target="_blank"
+                        href={e.data.link.url}
+                        aria-label={e.data.link.ariaLabel}
+                        >
+                            {e.data.link.text}
+                        </a>
+                        }
+                    </div>
+                    <div class="title text-center">{e.data.title}</div>
+                    <p>
+                      {e.body}
+                    </p>
+                </div>
             </div>
-            <h4 class="title text-center">Areena Saudi German</h4>
-            <p>
-                Yes! like many others I started with a simple HTML & CSS project
-                but only If I knew it won't be "simple". It's an optimized, SEO
-                friendly static website powered by StoryBlok CMS.
-            </p>
-        </div>
-    </div>
-    <div class="part bg-primary">
-        <div class="part-wrapper text-base-100 drop-shadow-sm">
-            <span>The near Future</span>
-            <h4 class="title">Next Step?</h4>
-            <p class="text-lg">
-                I'm open to new challenges and opportunities in Backend
-                Development.
-            </p>
-        </div>
-        <a
-            class="btn btn-neutral hover:border-none hover:text-base-content hover:bg-white hover:drop-shadow-md mt-6 text-white"
-            href="#contact-section">Get in touch</a
-        >
-    </div>
+        ))
+    }
 </section>
 
 <style>
@@ -67,6 +67,6 @@
     }
 
     .title {
-        @apply text-6xl my-16 md:my-7;
+        @apply text-6xl my-16 md:my-12;
     }
 </style>
