@@ -6,10 +6,10 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div
-    class="h-screen relative flex flex-col items-center sm:items-start justify-center max-w-lg sm:max-w-[80vw] xl:max-w-6xl mx-auto"
+    class="h-screen relative flex flex-col items-center sm:items-start justify-around sm:justify-center max-w-lg sm:max-w-[80vw] xl:max-w-6xl mx-auto"
 >
     <div
-        class="flex sm:flex-col flex-wrap h-40 max-w-xs justify-center md:max-w-sm gap-x-6"
+        class="flex sm:flex-col flex-wrap justify-center h-40 max-w-xs md:max-w-sm gap-x-6 gap-y-3 sm:gap-y-0"
     >
         <DivImage
             classList="h-32 w-32 bg-cover rounded-2xl bg-blend-multiply "
@@ -19,7 +19,7 @@ import { Icon } from "astro-icon/components";
             {siteData.hero.nameArabic}
         </div>
         <div class="name">{siteData.hero.name}</div>
-        <div class="flex w-full mt-5 gap-3">
+        <div class="flex w-full mt-5 gap-3 justify-center sm:justify-start">
             {
                 Object.values(siteData.contactInfo).map((item) => (
                     <a
