@@ -35,7 +35,7 @@ const { Content } = await render(project);
 <BaseLayout title={title} description={shortDesc}>
     <ProjectHeader />
     <div
-        class="w-screen absolute -z-10 bg-dark bottom-auto h-[676px] left-0% max-lg:h-600 max-md:h-500 max-sm:h-450 right-0 top-0"
+        class="w-screen absolute -z-10 bg-black bottom-auto h-[676px] left-0% max-lg:h-600 max-md:h-500 max-sm:h-450 right-0 top-0"
     >
     </div>
     <div
@@ -54,11 +54,13 @@ const { Content } = await render(project);
                 class="fade-up-item fade-up-delay-none w-full h-[600px] md:mt-16 sm:mt-10 mt-4"
             >
                 <Image
-                    class:list="w-full h-full bg-cover object-cover rounded-xl drop-shadow"
+                    class:list="w-full h-full bg-cover object-cover bg-center rounded-xl"
                     src={introImage}
                     loading="lazy"
                     decoding="async"
-                    alt="d"
+                    height="800"
+                    quality="high"
+                    alt={"Project '" + title + "' banner"}
                 />
             </div>
         </div>
@@ -88,13 +90,13 @@ const { Content } = await render(project);
             </div>
 
             <div
-                class="fade-up-item max-w-none prose sm:prose-lg md:max-w-screen-lg md:mx-auto h-80"
+                class="fade-up-item max-w-none prose sm:prose font-semibold md:max-w-screen-lg md:mx-auto h-fit"
             >
                 <Content />
             </div>
 
             <div
-                class="fade-up-item w-full mt-16 mb-10 h-1 border-y border-dark"
+                class="fade-up-item w-full mt-16 mb-10 h-1 border-y border-black"
             >
             </div>
             {
