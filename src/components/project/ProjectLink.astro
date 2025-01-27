@@ -10,11 +10,11 @@ const data = project.data;
 ---
 
 <a
-    class="outline outline-1 p-4 rounded-md hover:shadow-md hover:outline-[2.5px] transition"
+    class="outline-1 outline-dashed p-4 rounded-md hover:shadow-md transition-all"
     href={`/${BASE_PATH}/projects/${project.id}/`}
 >
-    <div class="flex flex-col">
-        <div class="text-lg font-semibold font-serif text-center">
+    <div class="flex flex-col text-sm">
+        <div class="font-semibold font-serif">
             {data.title}
         </div>
         <div class="mt-2">{data.shortDesc}</div>
