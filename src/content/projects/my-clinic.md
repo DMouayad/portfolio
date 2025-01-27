@@ -1,6 +1,6 @@
 ---
 title: MyClinic
-shortDesc: da
+shortDesc: Designed to facilitate the management of dental records.
 tags: [ "Laravel", "MySQL", "Flutter"]
 date: 2022-2023
 links:
@@ -13,7 +13,10 @@ links:
 images:
     - /src/images/my_clinic_api/banner.png
 ---
-🚧🚧🚧 COMING SOON 🚧🚧🚧
+
+# MyClinic API
+
+*A comprehensive set of endpoints for managing healthcare-related data. This API allows doctors to access and manage patient information, appointments, and medical records efficiently.*
 
 <!-- Developed using Laravel following API design best practices: Domain Models, DTOs, Actions, Unit and Feature tests.
 Role Based Auth with access and refresh tokens. -->
