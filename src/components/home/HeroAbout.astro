@@ -1,19 +1,23 @@
 ---
-import DivImage from "../DivImage.astro";
+import { Image } from "astro:assets";
 import avatar from "../../images/avatar.png";
 import { siteData } from "@/data/siteData";
 import { Icon } from "astro-icon/components";
 ---
 
 <div
-    class="h-screen relative flex flex-col items-center sm:items-start justify-around sm:justify-center max-w-lg sm:max-w-[80vw] xl:max-w-6xl mx-auto"
+    class="h-screen relative flex flex-col items-center sm:items-start justify-around sm:justify-center max-w-[80vw] sm:max-w-[80vw] xl:max-w-6xl mx-auto"
 >
     <div
         class="flex sm:flex-col flex-wrap justify-center h-40 max-w-xs md:max-w-sm gap-x-6 gap-y-3 sm:gap-y-0"
     >
-        <DivImage
-            classList="h-32 w-32 bg-cover rounded-2xl bg-blend-multiply "
-            options={{ src: avatar }}
+        <Image
+            class="h-36 w-32 rounded-2xl"
+            src={avatar}
+            width="300"
+            height="300"
+            quality="100"
+            alt="A Portrait of myself"
         />
         <div class="name" style="font-family: Almarai">
             {siteData.hero.nameArabic}
