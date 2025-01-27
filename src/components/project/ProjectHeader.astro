@@ -4,8 +4,8 @@ import { siteData } from "@/data/siteData";
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="w-full bg-black z-[999] px-5 md:px-20 fixed py-0">
-    <div class="h-20 text-white flex items-center justify-between">
+<div class="w-full bg-black z-10 px-5 md:px-20 fixed sm:py-0">
+    <div class="h-20 sm:h-20 text-white flex items-center justify-between">
         <div class="flex gap-x-3 md:gap-x-6 items-center">
             <a href=`/${BASE_PATH}#projects` class="group flex items-center">
                 <Icon class="w-5 h-5" name="carbon:arrow-left" />
@@ -15,17 +15,21 @@ import { Icon } from "astro-icon/components";
                     back to projects
                 </div>
             </a>
-            <a href=`/${BASE_PATH}` class="text-xl font-bold">Mouayad Alhamwi</a
+            <a
+                href=`/${BASE_PATH}`
+                class="hidden sm:block text-base text-base-300 font-semibold"
+                >Mouayad Alhamwi</a
             >
         </div>
         <div class="flex items-center gap-4 justify-center">
             <a
                 href={siteData.contactInfo.email.url}
                 aria-label={siteData.contactInfo.email.buttonLabel}
-                class="btn btn-outline text-base-200 hover:bg-base-100 hover:text-base-content rounded-lg"
-                ><Icon name="carbon:email" />Get in touch
+                class="btn btn-outline text-base-300 hover:bg-base-100 hover:text-base-content rounded-lg"
+                ><Icon name="carbon:email" />
+                <span class="hidden sm:block"> Get in touch </span>
             </a>
         </div>
     </div>
 </div>
-<div class="h-20"></div>
+<div class="h-20 sm:h-20"></div>
