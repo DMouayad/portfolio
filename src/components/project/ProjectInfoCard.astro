@@ -8,11 +8,12 @@ const { title, classList = "", ...rest } = Astro.props;
 ---
 
 <div
-    class=`rounded-xl border border-black px-5 py-6 md:px-7 md:py-8 w-[85vw] mx-auto lg:w-[350px] ${classList}`
+    class="rounded-xl border border-black h-32 w-[85vw] m-auto lg:w-[350px] flex flex-col items-center justify-center"
+    class:list={classList}
     {...rest}
 >
     <div
-        class="font-serif text-dark tracking-tight font-bold leading-10 text-3xl text-center"
+        class="font-serif text-black tracking-tight font-semibold leading-10 text-3xl text-center"
     >
         {title}
     </div><div class="font-normal leading-7 text-lg mt-3 text-center">

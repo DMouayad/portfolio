@@ -35,30 +35,35 @@ const { Content } = await render(project);
 <BaseLayout title={title} description={shortDesc}>
     <ProjectHeader />
     <div
-        class="w-screen absolute -z-10 bg-dark bottom-auto h-[676px] left-0% max-lg:h-600 max-md:h-500 max-sm:h-450 right-0 top-0"
+        class="w-screen absolute -z-10 bg-black bottom-auto h-[676px] left-0% max-lg:h-600 max-md:h-500 max-sm:h-450 right-0 top-0"
     >
     </div>
     <div
-        class="mx-auto max-lg:mx-060 max-md:mx-10 max-sm:mx-5 max-xl:mx-20 max-md:pt-[20px] max-sm:pt-[60px] max-w-6xl pt-[100px] relative"
+        class="mx-auto max-md:mx-10 max-sm:mx-5 max-xl:mx-20 max-md:pt-[20px] max-sm:pt-[60px] max-w-6xl pt-[100px] relative"
     >
         <div class="fade-up-box !mb-20">
-            <div id="title-box" class="fade-up-item">
-                <h1
-                    class="text-white font-semibold leading-[76px] max-lg:leading-[68px] max-lg:text-6xl max-md:leading-[60px] max-sm:leading-[52px] max-w-[732px] mx-auto my-0 text-3xl md:text-6xl text-center tracking-tight"
+            <div
+                id="title-box"
+                class="fade-up-item fixed top-0 left-0 right-0 mx-auto z-20 w-fit"
+            >
+                <div id="title"
+                    class="transition-all duration-300  text-white font-semibold leading-[76px] max-lg:leading-[68px] max-md:leading-[60px] max-sm:leading-[52px] tracking-tight"
                 >
                     {title}
-                </h1>
+                </div>
             </div>
             <div
                 id="img"
-                class="fade-up-item fade-up-delay-none w-full h-[600px] md:mt-16 sm:mt-10 mt-4"
+                class="fade-up-item fade-up-delay-none w-full h-[600px] md:mt-32 mt-28 "
             >
                 <Image
-                    class:list="w-full h-full bg-cover object-cover rounded-xl drop-shadow"
+                    class:list="w-full h-full bg-cover object-cover bg-center rounded-xl"
                     src={introImage}
                     loading="lazy"
                     decoding="async"
-                    alt="d"
+                    height="800"
+                    quality="high"
+                    alt={"Project '" + title + "' banner"}
                 />
             </div>
         </div>
@@ -86,23 +91,20 @@ const { Content } = await render(project);
                     }</ProjectInfoCard
                 >
             </div>
-
             <div
-                class="fade-up-item max-w-none prose sm:prose-lg md:max-w-screen-lg md:mx-auto h-80"
+                class="fade-up-item relative max-w-none prose sm:prose font-semibold md:max-w-screen-lg md:mx-auto h-fit"
             >
                 <Content />
             </div>
 
             <div
-                class="fade-up-item w-full mt-16 mb-10 h-1 border-y border-dark"
+                class="fade-up-item w-full mt-16 mb-10 h-1 border-y border-black"
             >
             </div>
             {
                 (prevProject || nextProject) && (
+                    <h2 class="fade-up-item font-serif italic mb-4">View Also:</h2>
                     <div class="fade-up-item flex flex-col md:flex-row items-center gap-x-5">
-                        <h2 class=" text-xl font-serif italic sm:text-2xl">
-                            View Also
-                        </h2>
                         {nextProject && <ProjectLink project={nextProject} />}
                         {prevProject && <ProjectLink project={prevProject} />}
                     </div>
@@ -111,6 +113,7 @@ const { Content } = await render(project);
         </div>
     </div>
 
+    </BaseLayout>
     <style>
         #title-box.fade-up-item {
             transition: 1.2s ease;
@@ -121,5 +124,29 @@ const { Content } = await render(project);
         #info-cards.fade-up-item {
             transition: 1s ease;
         }
+        #title{
+            padding-top: max(env(safe-area-inset-top), 8px);
+        }
     </style>
-</BaseLayout>
+
+<script>
+    const titleEl =document.getElementById('title')
+window.onload = function() {
+    if(titleEl){
+        const initialClasses=["mt-40", "text-4xl", "md:text-6xl"]
+        const scrolledClasses = ["mt-0",  "lg:mt-4", "text-xl", "md:text-3xl" ]
+        titleEl?.classList.add(...initialClasses)
+    window.addEventListener('scroll',()=>{
+           const condition=window.scrollY >= 100
+           if(condition){
+               titleEl?.classList.add(...scrolledClasses)
+               titleEl?.classList.remove(...initialClasses)
+           }else{
+            titleEl?.classList.remove(...scrolledClasses)
+            titleEl?.classList.add(...initialClasses)
+           }
+        })
+    }
+}
+
+</script>
