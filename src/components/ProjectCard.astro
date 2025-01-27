@@ -38,7 +38,7 @@ const data = project.data;
                 <a class="me-1 sm:me-0 " href={link.url} target="_blank">
                     <Badge
                         type="custom"
-                        classList="tracking-wide sm:text-base-200 lg:text-black  flex border-black  gap-3 sm:gap-2 font-base  transition duration-300 hover:-translate-y-1  ease-in delay-50 hover:scale-105 hover:shadow-md"
+                        classList="tracking-wide underline sm:text-base-200 lg:text-black flex border-none gap-3 sm:gap-2 font-base transition hover:text-white hover:bg-black"
                     >
                         <Icon name={link.icon} />
                         {link.label}
@@ -50,7 +50,7 @@ const data = project.data;
     <a
         href={`/${BASE_PATH}/projects/${project.id}/`}
         target="_blank"
-        class="h-[100%] delay-300 sm:self-start items-end sm:justify-self-center sm:w-full absolute md:opacity-0 translate-x-4 md:-translate-x-4 will-change-transform transition group-hover:opacity-100 group-hover:translate-x-3 inline-flex bottom-2 sm:gap-1 sm:shrink-0 duration-150 ease-in"
+        class="h-[100%] delay-300 sm:self-start items-end sm:justify-self-center sm:w-full absolute md:opacity-0 translate-x-0 md:-translate-x-4 will-change-transform transition group-hover:opacity-100 group-hover:translate-x-0 inline-flex bottom-5 sm:gap-1 sm:shrink-0 duration-150 ease-in"
     >
         <div
             class="btn btn-link md:decoration-transparent hover:decoration-current text-lg md:text-sm font-serif font-normal italic px-0"
@@ -62,21 +62,21 @@ const data = project.data;
 
 <style>
     .project-card {
-        @apply w-[340px] h-[330px]  max-w-[80vw];
+        @apply w-[360px] h-[360px]  max-w-[80vw];
         @apply flex flex-col relative justify-between;
         @apply outline-base-300 outline-dotted outline-1 lg:outline-none rounded-md hover:-translate-y-2  hover:bg-base-100;
         @apply transition-all duration-500 ease-in-out;
         @apply will-change-transform;
-        @apply pb-4;
+        @apply p-5;
         > div {
-            @apply px-3;
+            /* @apply group-hover:px-6; */
         }
     }
     .project-img {
         @apply w-full h-[150px] bg-no-repeat bg-cover bg-center rounded-md;
     }
     .project-title {
-        @apply mb-2 text-xl font-semibold text-gray-800 dark:text-white group-hover:text-gray-800  whitespace-nowrap overflow-ellipsis;
+        @apply mt-5 mb-2 text-xl font-semibold text-gray-800 dark:text-white group-hover:text-gray-800  whitespace-nowrap overflow-ellipsis;
     }
     .project-desc {
         @apply text-gray-600 dark:text-gray-200 group-hover:text-gray-500 overflow-ellipsis text-base;
